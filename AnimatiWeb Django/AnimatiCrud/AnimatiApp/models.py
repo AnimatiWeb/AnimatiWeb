@@ -48,3 +48,18 @@ class Cliente(models.Model):
         return self.Nombre
     def __str__(self):
         return self.Nombre
+    
+class Pedidos (models.Model):
+    Nro_Pedido = models.IntegerField(primary_key=True)
+    Id_Producto = models.ForeignKey(Producto, to_field='Id_Producto', on_delete=models.CASCADE)
+    DNI = models.ForeignKey(Cliente, to_field='DNI', on_delete=models.CASCADE)    
+    Cantidad = models.IntegerField(blank=False)
+    class Meta:
+        db_table = 'pedido'
+        verbose_name = 'Pedido'
+        verbose_name_plural = 'Pedidos'
+
+    def __unicode__(self):
+        return self.Nro_Pedido
+    def __str__(self):
+        return self.Nro_Pedido

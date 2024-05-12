@@ -11,6 +11,11 @@ class ProductoAdmin(admin.ModelAdmin):
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('Nombre', 'Apellido', 'Correo_Electronico', 'Direccion', 'Telefono')
 
+class PedidosAdmin(admin.ModelAdmin):
+    list_display = ('Nro_Pedido', 'Id_Producto', 'DNI', 'Cantidad')
+
+
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Producto, ProductoAdmin)
-admin.site.register(Cliente, ClienteAdmin)        
+admin.site.register(Cliente, ClienteAdmin)
+admin.site.register(Pedidos, PedidosAdmin)
