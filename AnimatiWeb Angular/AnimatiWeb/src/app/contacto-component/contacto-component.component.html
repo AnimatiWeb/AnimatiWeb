@@ -20,17 +20,6 @@
           event.preventDefault();
           return;
         }
-  
-        // Valida el campo de Contraseña
-       if (!password.value.match(/^(?=.*[A-Z])(?=.*\d).{8,}$/)) {
-        alert(
-          'La contraseña debe contener al menos 8 caracteres con al menos una letra mayúscula y un número.'
-        );
-        event.preventDefault();
-        return;
-      }
-  
-    
       });
     });
   </script>
