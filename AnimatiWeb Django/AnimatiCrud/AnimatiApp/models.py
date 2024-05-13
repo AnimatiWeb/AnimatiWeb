@@ -62,8 +62,7 @@ class Pedidos (models.Model):
 
     def __unicode__(self):
         return self.Nro_Pedido
-    def __str__(self):
-        return self.Nro_Pedido
+    
     
 class Usuario(models.Model):
     ID_Usuario = models.AutoField(primary_key=True)
