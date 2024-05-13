@@ -31,13 +31,13 @@
                  <img src="../../assets/img/password-icon.svg" alt="icono-usuario" class="usu-icon">
                 </div>
                 <input class="form-control bg-light" type="password" formControlName="password" placeholder="password" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*">
-                @if(Password?.errors && Password?.touched){
-                    @if(Password?.hasError('required')){
+                @if(password?.errors && password?.touched){
+                    @if(password?.hasError('required')){
                         <p class="text-danger">
                             El Password es requerido.
                         </p>
                     }
-                    @else if (Password?.hasError('minlength')) {
+                    @else if (password?.hasError('minlength')) {
                         <p class="text-danger">
                             El Password requiere como minimo 8 caracteres.
                         </p>

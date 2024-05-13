@@ -21,7 +21,7 @@ export class LoginComponent {
     )
   }
 
-  get Password()
+  get password()
   {
   return this.form.get("Password");
   }
