@@ -3,10 +3,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.querySelector('form');
       const nombreUsuario = document.querySelector('#Nombre_Usuario');
-      const numeroTelefono = document.querySelector('#Numero_Telefono');
       const email = document.querySelector('#email');
-      const password = document.querySelector('#password');
-      const termsAndConditions = document.querySelector('#terms-and-conditions');
   
       form.addEventListener('submit', function (event) {
         // Valida el campo Nombre de Usuario
@@ -16,12 +13,6 @@
           return;
         }
   
-        // Valida el campo Número de Teléfono 
-        if (!numeroTelefono.value.match(/^\d{10}$/)) {
-          alert('El campo Número de Teléfono debe tener 10 dígitos.');
-          event.preventDefault();
-          return;
-        }
   
         // Valida el campo de Correo Electrónico
         if (!email.checkValidity()) {
@@ -39,12 +30,7 @@
         return;
       }
   
-        // Valida si se aceptaron los términos y condiciones
-        if (!termsAndConditions.checked) {
-          alert('Debes aceptar los términos y condiciones para registrarte.');
-          event.preventDefault();
-          return;
-        }
+    
       });
     });
   </script>
@@ -55,8 +41,10 @@
     <fieldset>
       <label for="Nombre_Usuario">Nombre<input id="Nombre_Usuario" name="Nombre_Usuario" type="text" required /></label>
       <label for="email">Correo electrónico: <input id="email" name="email" type="email" required /></label>
-      <label for="password">Nueva contraseña: <input id="password" name="password" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" title="La contraseña debe de contener al menos 8 digitos con números y letras mayúsculas" required /></label>
       <label for="Mensaje"><textarea id="Mensaje" name="Mensaje" rows="10" cols="40">Escriba su consultas para que nuestro equivo de ventas se contacte con usted.</textarea></label>
+    </fieldset>
+    <fieldset>
+      <input type="submit" name="submit" value="Enviar">
     </fieldset>
   </form>
 </body>
