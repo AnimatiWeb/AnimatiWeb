@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Categoria(models.Model):
@@ -63,3 +64,22 @@ class Pedidos (models.Model):
         return self.Nro_Pedido
     def __str__(self):
         return self.Nro_Pedido
+    
+class Usuario(models.Model):
+    ID_Usuario = models.AutoField(primary_key=True)
+    Nombre_Usuario = models.CharField(max_length=100, blank=False)
+    Correo_Usuario = models.CharField(max_length=100, blank=False)
+    Numero_Telefono = models.IntegerField(blank=False)
+    Password = models.CharField(max_length=100, blank=False)
+
+    class Meta:
+        db_table = 'usuario'
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
+
+    def __unicode__(self):
+        return self.Nombre_Usuario
+    def __str__(self):
+        
+        return self.Nombre_Usuario
+    
