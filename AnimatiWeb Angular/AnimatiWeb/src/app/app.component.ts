@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-<<<<<<< HEAD
 import { FooterComponent } from './footer/footer.component';
-=======
 import { GalleryComponent } from './gallery/gallery.component';
->>>>>>> Audicio-Nicolas
+import { LoginComponent } from './pages/auth/login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GalleryComponent],
+
+  imports: [RouterOutlet, GalleryComponent, FooterComponent, LoginComponent,],
+
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
