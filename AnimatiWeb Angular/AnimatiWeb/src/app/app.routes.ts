@@ -17,6 +17,6 @@ export const routes: Routes = [
     {path:'set-stickers', component:SetStickersComponent},
     
     {path:"", redirectTo:"/home", pathMatch:"full"}
-]
+];
 
 
