@@ -30,7 +30,7 @@
                 <div class="input-group-text bg-secondary">
                  <img src="../../assets/img/password-icon.svg" alt="icono-usuario" class="usu-icon">
                 </div>
-                <input class="form-control bg-light" type="password" formControlName="password" placeholder="password" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*">
+                <input class="form-control bg-light" type="password" formControlName="password" placeholder="password" >
                 @if(password?.errors && password?.touched){
                     @if(password?.hasError('required')){
                         <p class="text-danger">
