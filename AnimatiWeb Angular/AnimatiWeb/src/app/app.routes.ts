@@ -8,6 +8,7 @@ import { SetStickersComponent } from './set-stickers/set-stickers.component';
 import { SeparadoresComponent } from './separadores/separadores.component';
 
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import { QuienesSomosComponent } from './pages/auth/quienes-somos/quienes-somos.component';
 
 export const routes: Routes = [
     {path:"gallery", component:GalleryComponent},
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path:'separadores', component:SeparadoresComponent},
     {path:'set-stickers', component:SetStickersComponent},
     {path:'', component:PaginaPrincipalComponent},
+    {path:'Quien-somos', component:QuienesSomosComponent},
     
     {path:"", redirectTo:"/", pathMatch:"full"}
 ];
