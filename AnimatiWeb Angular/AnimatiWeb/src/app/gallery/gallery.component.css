@@ -1,85 +1,71 @@
-.navbar{
-    padding: 1rem;
-    background-color: #ff86c4;
-}
-.navbar-collapse{
-   align-items: center;
-  justify-content: space-between;
-
-}
-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+.container-fluid {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
 
-.menu{
-
-    height: 130vh;
-    background-color: #ffe6f1;
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-color: #f8c8e4;
-    min-height: 450px;
+.text-center {
     text-align: center;
 }
 
-h1{
-    font-size: 5rem;
-    color: #353333;
-    font-family: 'Times New Roman', Times, serif
-}
-h5{
-    color: #fff;
+.titulo img {
+    max-width: 100%;
+    height: auto;
 }
 
-.log-icon{
-
-    height: 7rem;
-}
-.usu-icon{
-    height: 1rem;
+.menu p {
+    font-size: 1.2em;
+    color: #555;
 }
 
-@media screen and (max-width: 767px){
-    .navbar-brand{
-        display: none;
-    }
+.productos {
+    margin-top: 20px;
 }
 
-.productos img{
-    width: 200px;
-    margin-top: 7px;
-    align-content: center;
-    margin-left: 45%;
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.productos h3{
-    font-size: 1.0em;
-    margin-top: 5px;
-    margin-bottom: 1px;
-    align-content: center;
-    margin-left: 45%;
+.producto {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
 }
 
-.productos p{
-    font-size: 0.8em;
-    align-content: center;
-    margin-left: 45%;
-    margin-bottom: 10px;
+.producto:hover {
+    transform: scale(1.05);
 }
 
-.imagen{
-    width: 350px;
-    height: 250px;
-    margin-top: 40px;
+.producto img {
+    max-width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
-body {
-    width: 100%;
-    margin: 0;
+.producto h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.producto a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.producto p {
+    font-size: 1.2em;
+    color: #333;
 }
