@@ -1,60 +1,88 @@
-nav{
-    background-color: #ff86c4;
-    align-items: center;
-}
-
-header {
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  header {
     background: #ff86c4;
-    width: 100%;
-    clear: both;
-    content:'';
-    display: table;
-}
-
-.menu {
-    
-
-    margin: 0 auto;
-}
-
-img {
-    width: 120px;
-    height: 50px;
-    float: left;
-    padding: 8px;
-
-}
-
-nav {
-    float: right;
-}
-
-nav ul li {
-    list-style: none;
-    margin-left: 75px;
-    padding: 12px 0;
-    float: left;
-    position: relative;
+    padding: 10px 0;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-}
-
-nav ul li a {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo img {
+    width: 155px;
+    height: 62px;
+  }
+  
+  /* Navigation Styles */
+  .nav-menu {
+    display: flex;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    color: #fff;
     text-decoration: none;
-    color: #444;
-    font-weight: bold;
-}
+    margin-left: 20px;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center; 
+  }
+ 
+  .nav-link i {
+    margin-right: 8px; 
+  }
+  
 
-nav ul li a::before {
-    display: block;
-    content: '';
-    width: 0%;
-    background: #444;
-    height: 5px;
-    top:0;
-    position: absolute;
-    transition: width 0.2s;
-}
+  .nav-link:hover {
+    background-color: #660a66;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
 
-nav ul li a:hover::before {
-    width: 100%;
-}
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+    }
+  
+    .menu {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .logo {
+      margin-bottom: 10px;
+    }
+  
+    .menu.active .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .nav-link {
+      margin: 5px 0;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
