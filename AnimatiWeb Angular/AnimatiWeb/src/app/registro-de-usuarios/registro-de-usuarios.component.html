@@ -1,6 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<script>
-    //validaciones en JavaScript
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse</title>
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.querySelector('form');
       const nombreUsuario = document.querySelector('#Nombre_Usuario');
@@ -8,39 +12,32 @@
       const email = document.querySelector('#email');
       const password = document.querySelector('#password');
       const termsAndConditions = document.querySelector('#terms-and-conditions');
-  
+
       form.addEventListener('submit', function (event) {
-        // Valida el campo Nombre de Usuario
         if (!nombreUsuario.checkValidity()) {
-          alert('El campo Nombre de Usuario es inválido.');
-          event.preventDefault(); // Evita que se envíe el formulario
-          return;
-        }
-  
-        // Valida el campo Número de Teléfono 
-        if (!numeroTelefono.value.match(/^\d{10}$/)) {
-          alert('El campo Número de Teléfono debe tener 10 dígitos.');
+          alert('El campo Usuario es inválido.');
           event.preventDefault();
           return;
         }
-  
-        // Valida el campo de Correo Electrónico
+
+        if (!numeroTelefono.value.match(/^\d{10}$/)) {
+          alert('El campo Número de Teléfono debe tener 10 dígitos numéricos.');
+          event.preventDefault();
+          return;
+        }
+
         if (!email.checkValidity()) {
           alert('El campo Correo Electrónico es inválido.');
           event.preventDefault();
           return;
         }
-  
-        // Valida el campo de Contraseña
-       if (!password.value.match(/^(?=.*[A-Z])(?=.*\d).{8,}$/)) {
-        alert(
-          'La contraseña debe contener al menos 8 caracteres con al menos una letra mayúscula y un número.'
-        );
-        event.preventDefault();
-        return;
-      }
-  
-        // Valida si se aceptaron los términos y condiciones
+
+        if (!password.value.match(/^(?=.*[A-Z])(?=.*\d).{8,}$/)) {
+          alert('La contraseña debe contener al menos 8 caracteres con al menos una letra mayúscula y un número.');
+          event.preventDefault();
+          return;
+        }
+
         if (!termsAndConditions.checked) {
           alert('Debes aceptar los términos y condiciones para registrarte.');
           event.preventDefault();
@@ -51,23 +48,42 @@
   </script>
 </head>
 <body>
-  <h3>Registrarse</h3>
-  <p>Complete el formulario con sus datos</p>
-  <form method="post" action='./registration.py'>
-    <fieldset>
-      <label for="Nombre_Usuario">Usuario: <input id="Nombre_Usuario" name="Nombre_Usuario" type="text" required /></label>
-      <label for="Numero_Telefono">Numero de Telefono: <input id="Numero_Telefono" name="Numero_Telefono" type="text" required /></label>
-      <label for="email">Correo electrónico: <input id="email" name="email" type="email" required /></label>
-      <label for="password">Nueva contraseña: <input id="password" name="password" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" title="La contraseña debe de contener al menos 8 digitos con números y letras mayúsculas" required /></label>
-    </fieldset>
-    <fieldset>
-      
-      <label for="business-account"><input id="business-account" type="radio" name="account-type" class="inline" />Deseo recibir correos electrónicos con novedades</label>
-      <label for="terms-and-conditions">
-        <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" class="inline" />Acepto los <a href="./terms-y-co.html">terminos y condiciones</a>
-      </label>
-      <input type="submit" name="submit" value="Registrarse" />
-    </fieldset> 
+  <div class="container">
   
-  </form>
+
+    <div class="body">
+      <h3>Registrarse</h3>
+      <p>Complete el formulario con sus datos</p>
+      <form id="contact-form" method="post" action='./registration.py'>
+        <fieldset>
+          <label for="Nombre_Usuario">Usuario:</label>
+          <input id="Nombre_Usuario" name="Nombre_Usuario" type="text" required>
+        </fieldset>
+        <fieldset>
+          <label for="Numero_Telefono">Número de Teléfono:</label>
+          <input id="Numero_Telefono" name="Numero_Telefono" type="tel" pattern="[0-9]{10}" required>
+        </fieldset>
+        <fieldset>
+          <label for="email">Correo electrónico:</label>
+          <input id="email" name="email" type="email" required>
+        </fieldset>
+        <fieldset>
+          <label for="password">Nueva contraseña:</label>
+          <input id="password" name="password" type="password" pattern="^(?=.*[A-Z])(?=.*\d).{8,}$" title="La contraseña debe contener al menos 8 caracteres con al menos una letra mayúscula y un número." required>
+        </fieldset>
+        <fieldset>
+          <label for="business-account">
+            <input id="business-account" type="radio" name="account-type" class="inline">
+            Deseo recibir correos electrónicos con novedades
+          </label>
+          <label for="terms-and-conditions">
+            <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" class="inline">
+            Acepto los <a href="./terms-y-co.html">términos y condiciones</a>
+          </label>
+          <input type="submit" name="submit" value="Registrarse">
+        </fieldset> 
+      </form>
+    </div>
+  </div>
 </body>
+</html>
