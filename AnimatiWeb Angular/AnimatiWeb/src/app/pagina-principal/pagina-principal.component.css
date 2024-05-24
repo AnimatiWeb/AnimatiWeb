@@ -1,87 +1,81 @@
-body{
-    background-color: rgb(151, 193, 218);;
+body {
+    background-color: #deeaf1;
     background-size: cover;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-h1{
-    display:flex;
-    justify-content:center;
-    background-color: rgb(141, 70, 207);
+h1 {
+    display: flex;
+    justify-content: center;
+    background-color: #8D46CF;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
 }
 
-#Cajas{
-    width: 340px;
-    height: 300px;
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
-#colgantes{
-  width: 340px;
-  height: 300px;
+.card:hover {
+    transform: scale(1.05);
 }
 
-#separadores{
-  width: 340px;
-  height: 300px;
+.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    max-height: 300px;
+    object-fit: cover;
 }
 
-#separadores-autoadhesivos{
-  width: 340px;
-  height: 300px;
+.card-body {
+    background-color: #E08090;
+    padding: 15px;
+    color: white;
 }
 
-#stickers{
-  width: 340px;
-  height: 300px;
+.btn-primary {
+    font-size: 20px;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-#cubecraft{
-  width: 340px;
-  height: 300px;
+.btn-primary img {
+    width: 2rem;
 }
 
-.fondo-carta{
-    background-color:rgb(224, 128, 144);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    margin-bottom: 8px;
-}
-.margen{
-    margin-bottom: 0rem;
-     
-}
-table.bs-table-bg{
-    background-color:grey !important;
-}
-.cuadrado{
-    width: 125px;
-    height:15px;
-    background: rgb(224, 128, 144);
-    border:solid 3px rgb(224, 128, 144);
-}
-
-nav{
-  background-color: #ff86c4;
+.btn-modern {
+  display: flex;
   align-items: center;
+  padding: 10px 20px;
+  background-color: #7a1edc; /* Violeta */
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-header {
-  background: #ff86c4;
-  width: 100%;
-  clear: both;
-  content:'';
-  display: table;
+.btn-modern:hover {
+  background-color: #ac7ae0; /* Violeta más claro */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-.menu {
-  width: 900px;
-  margin: 0 auto;
+.collection-icon {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
 }
 
-img {
-  width: 120px;
-  height: 50px;
-  float: left;
-  padding: 8px;
-
+.btn-text {
+  margin: 0;
 }
