@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from .models import *
 # Register your models here.
 
@@ -13,4 +14,4 @@ class ClienteAdmin(admin.ModelAdmin):
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Producto, ProductoAdmin)
-admin.site.register(Cliente, ClienteAdmin)        
+admin.site.register(Cliente, ClienteAdmin)     
