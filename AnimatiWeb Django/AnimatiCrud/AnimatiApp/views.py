@@ -1,20 +1,18 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate
-from knox import views as knox_views
-from knox.views import LoginView as KnoxLoginView
+from django.contrib.auth import authenticate, login, logout
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
 from django.views.generic import  DetailView, ListView, CreateView, UpdateView, DeleteView
 from rest_framework import permissions
 from rest_framework.views import APIView
-from rest_framework.authtoken.serializers import AuthTokenSerializer
-from django.contrib.auth import login
-from rest_framework.generics import CreateAPIView, UpdateAPIView
+from rest_framework.generics import CreateAPIView, UpdateAPIView, GenericAPIView
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status, viewsets, generics
 
 
 
-from .models import Categoria, User
+from .models import *
 from .serializers import *
 # Create your views here.
 
@@ -29,21 +27,31 @@ class ActualizarUsuarioSerializerAPI(UpdateAPIView):
     serializer_class = ActualizarUsuarioSerializer
 
 
-class LoginAPI(KnoxLoginView):
-    permission_classes = (permissions.AllowAny, )
-    
-
-    def post(self, request, format=None):
-        serializer = AuthTokenSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            user = serializer.validated_data['user']
+class LoginAPIView(APIView):
+    permission_classes = [AllowAny] 
+    def post(self, request):
+        # Recuperamos las credenciales y autenticamos al usuario
+        email = request.data.get('email', None)
+        password = request.data.get('password', None)
+        user = authenticate(email=email, password=password)
+        if user:
             login(request, user)
-            response = super(LoginAPI, self).post(request, format=None)
-        else:
-            return Response({'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                UsuarioSerializer(user).data,
+                status=status.HTTP_200_OK)
+        return Response(
+            status=status.HTTP_404_NOT_FOUND)
 
-        return Response(response.data, status=status.HTTP_200_OK)
+
+class LogoutView(APIView):
+    permission_classes = [AllowAny] 
+    def post(self, request):
+        logout(request)
+        return Response(status=status.HTTP_200_OK)
     
+class SignupView(generics.CreateAPIView):
+    serializer_class = UsuarioSerializer
+        
 class ListaDeUsuarios(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UsuarioSerializer
