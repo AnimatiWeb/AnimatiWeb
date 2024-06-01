@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from datetime import timedelta
 from pathlib import Path
 import os
 
@@ -40,15 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AnimatiApp',
-<<<<<<< HEAD
     
     
-=======
-    'rest_framework',
-    'rest_framework_simplejwt',  
-    'rest_framework_simplejwt.token_blacklist',
-    "corsheaders",
->>>>>>> developer
 ]
 
 MIDDLEWARE = [
@@ -59,21 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
 ]
-
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-        'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.IsAdminUser',
-    ],
-    
-}
-
 
 ROOT_URLCONF = 'AnimatiCrud.urls'
 
@@ -154,35 +132,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
-
-STATICFILES_DIR = [
-    os.path.join(BASE_DIR, 'static')
-]
-
-MEDIA_URL = '/imagenes/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/imagenes')
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-<<<<<<< HEAD
-=======
-
-AUTH_USER_MODEL = 'AnimatiApp.User'
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'AUTH_HEADER_TYPES': ('JWT',),
-    'ROTATE_REFRESH_TOKENS': True,
-    'BLACKLIST_AFTER_ROTATION': True,
-    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken", ),
-}
-
-CORS_ORIGIN_WHITELIST = ["http://localhost:4200"]
-CORS_ALLOW_CREDENTIALS = True
->>>>>>> developer

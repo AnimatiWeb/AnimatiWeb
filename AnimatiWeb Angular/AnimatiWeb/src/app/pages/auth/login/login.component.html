@@ -7,20 +7,19 @@
 </div>     
 <div class=" conteiner-fluid p-3 mt-5 mb-5 w-50 mx-auto from-reponsive">
     <main class="form-signin">
-        <form [formGroup]="loginform" (ngSubmit)="login()">
-          <p class="text-danger">{{loginError}}</p>
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
             <div class="input-group mt-3">
                 <div class="input-group-text bg-secondary">
                   <img src="../../assets/img/username-icon.svg" alt="icono-usuario" class="usu-icon">
                 </div>
-                <input class="form-control" type="email" placeholder="username" formControlName="email">
-                @if(email?.errors && email?.touched){
-                    @if(email?.hasError('required')){
+                <input class="form-control" type="email" placeholder="email" formControlName="email">
+                @if(Email?.errors && Email?.touched){
+                    @if(Email?.hasError('required')){
                         <p class="text-danger">
                             El Email es requerido.
                         </p>
                     }
-                    @else if (email?.hasError('email')) {
+                    @else if (Email?.hasError('email')) {
                         <p class="text-danger">
                             El formato del Email debe ser valido.
                         </p>

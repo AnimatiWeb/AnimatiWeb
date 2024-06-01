@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-<<<<<<< HEAD
 import { RouterLink } from '@angular/router';
 
-=======
-import { LoginService } from '../../../services/auth/login.service';
-import { LoginRequest } from '../../../services/auth/loginRequest';
->>>>>>> developer
 
 @Component({
   selector: 'app-login',
@@ -19,14 +12,12 @@ import { LoginRequest } from '../../../services/auth/loginRequest';
 })
 
 export class LoginComponent {
-  loginError:string="";
-  loginform!:FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private router:Router, private loginService:LoginService)
+  form!:FormGroup;
+  constructor(private formBuilder: FormBuilder)
   { 
-    this.loginform=this.formBuilder.group(
+    this.form=this.formBuilder.group(
       {
-        username:['',[Validators.required, Validators.email],[]],
+        email:['',[Validators.required, Validators.email],[]],
         password:['',[Validators.required, Validators.minLength(8)],[]]
       }
     )
@@ -34,36 +25,24 @@ export class LoginComponent {
 
   get password()
   {
-  return this.loginform.get("password");
+  return this.form.get("Password");
   }
-  get email()
+  get Email()
   {
-  return this.loginform.get("email");
+  return this.form.get("Email");
   }
 
-  login()
+  onEnviar(event:Event)
   {
-   
-    if(this.loginform.valid){
-      this.loginService.login(this.loginform.value as LoginRequest).subscribe({
-        next: (userData) =>{
-          console.log(userData);
-        },
-        error: (errorData) =>{
-          console.error(errorData);
-          this.loginError = errorData;
-        },
-        complete: () =>{
-          console.info('Login completo');
-          this.router.navigateByUrl('/inicio');
-          this.loginform.reset();
-        }
-      })
-      
+    console.log(this.form.value)
+
+    event.preventDefault;
+    if(this.form.valid){
+      alert('Enviando Datos al Servidor...')
     }
     else
     {
-      this.loginform.markAllAsTouched();
+      this.form.markAllAsTouched();
     }
   }
 
