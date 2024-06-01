@@ -1,8 +1,4 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-
-# Create your views here.
-=======
 from django.contrib.auth import authenticate, logout
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -166,4 +162,3 @@ class ActualizarProductoenCarrito(UpdateView):
 
 class EliminarItemEnCarrito(DeleteView):
     model = ProductoCarrito
->>>>>>> JonJonathanArias
