@@ -7,7 +7,7 @@ body {
 }
 
 .about-us {
-    background-color: #ffe6f0; /* Rosa muy clarito */
+    background-color: #ffe6f0; 
     padding: 30px;
     margin: 20px auto;
     max-width: 800px;
@@ -23,11 +23,11 @@ body {
 
 .about-us h1 {
     text-align: center;
-    color: #d63384; /* Un tono más oscuro de rosa */
+    color: #d63384; 
 }
 
 .about-us h2 {
-    color: #d63384; /* Un tono más oscuro de rosa */
+    color: #d63384; 
     margin-top: 20px;
 }
 
@@ -48,7 +48,7 @@ body {
 }
 
 .about-us strong {
-    color: #d63384; /* Un tono más oscuro de rosa */
+    color: #d63384; 
 }
 
 
