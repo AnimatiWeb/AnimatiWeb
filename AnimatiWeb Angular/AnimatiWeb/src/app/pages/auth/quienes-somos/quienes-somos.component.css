@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+#quienes-somos {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+#quienes-somos .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#quienes-somos h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#quienes-somos p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.imagen-container {
+    margin-bottom: 30px;
+}
+
+.equipo-imagen {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+#quienes-somos h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#quienes-somos ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+#quienes-somos li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#quienes-somos a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#quienes-somos a:hover {
+    text-decoration: underline;
+}
+
