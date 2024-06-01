@@ -16,10 +16,15 @@ export const routes: Routes = [
     {path:"cubecraft", component:CubecraftCityComponent},
     {path:"registroUsuarios", component:RegistroDeUsuariosComponent},
     {path:'login', component:LoginComponent},
+<<<<<<< HEAD
     {path:'separadores', component:SeparadoresComponent},
     {path:'set-stickers', component:SetStickersComponent},
     {path:'', component:PaginaPrincipalComponent},
     {path:'Quien-somos', component:QuienesSomosComponent},
     
     {path:"", redirectTo:"/", pathMatch:"full"}
+=======
+    
+>>>>>>> developer
 ];
+

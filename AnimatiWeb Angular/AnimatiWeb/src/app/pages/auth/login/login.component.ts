@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+<<<<<<< HEAD
 import { RouterLink } from '@angular/router';
 
+=======
+import { LoginService } from '../../../services/auth/login.service';
+import { LoginRequest } from '../../../services/auth/loginRequest';
+>>>>>>> developer
 
 @Component({
   selector: 'app-login',
@@ -12,12 +19,14 @@ import { RouterLink } from '@angular/router';
 })
 
 export class LoginComponent {
-  form!:FormGroup;
-  constructor(private formBuilder: FormBuilder)
+  loginError:string="";
+  loginform!:FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private router:Router, private loginService:LoginService)
   { 
-    this.form=this.formBuilder.group(
+    this.loginform=this.formBuilder.group(
       {
-        email:['',[Validators.required, Validators.email],[]],
+        username:['',[Validators.required, Validators.email],[]],
         password:['',[Validators.required, Validators.minLength(8)],[]]
       }
     )
@@ -25,24 +34,36 @@ export class LoginComponent {
 
   get password()
   {
-  return this.form.get("Password");
+  return this.loginform.get("password");
   }
-  get Email()
+  get email()
   {
-  return this.form.get("Email");
+  return this.loginform.get("email");
   }
 
-  onEnviar(event:Event)
+  login()
   {
-    console.log(this.form.value)
-
-    event.preventDefault;
-    if(this.form.valid){
-      alert('Enviando Datos al Servidor...')
+   
+    if(this.loginform.valid){
+      this.loginService.login(this.loginform.value as LoginRequest).subscribe({
+        next: (userData) =>{
+          console.log(userData);
+        },
+        error: (errorData) =>{
+          console.error(errorData);
+          this.loginError = errorData;
+        },
+        complete: () =>{
+          console.info('Login completo');
+          this.router.navigateByUrl('/inicio');
+          this.loginform.reset();
+        }
+      })
+      
     }
     else
     {
-      this.form.markAllAsTouched();
+      this.loginform.markAllAsTouched();
     }
   }
 
