@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import *
+
 # Register your models here.
+
 
 class CategoriaAdmin(admin.ModelAdmin):
     list_display =('Nombre_Categoria', 'Descripcion_Categoria')
@@ -14,8 +16,11 @@ class ClienteAdmin(admin.ModelAdmin):
 class PedidosAdmin(admin.ModelAdmin):
     list_display = ('Nro_Pedido', 'Id_Producto', 'DNI', 'Cantidad')
 
+   
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(Pedidos, PedidosAdmin)
+
+admin.site.register(Usuario)
