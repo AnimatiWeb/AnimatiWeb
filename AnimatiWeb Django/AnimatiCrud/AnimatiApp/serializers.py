@@ -34,18 +34,18 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 class CustomUsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username','email','name','last_name')
+        fields = ('username','email','first_name','last_name')
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username', 'email')
+        model = get_user_model()
+        fields = '__all__'
 
 
 class CrearUsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password', 'name', 'last_name')
+        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name')
         extra_kwargs = {
             'password': {'required': True}
         }
@@ -87,7 +87,7 @@ class UsuarioListaSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         return {
             'id': instance['id'],
-            'name': instance['name'],
+            'first_name': instance['first_name'],
             'username': instance['username'],
             'email': instance['email']
         }
