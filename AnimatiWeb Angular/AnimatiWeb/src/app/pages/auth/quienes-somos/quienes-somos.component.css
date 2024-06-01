@@ -19,15 +19,17 @@ h1, h2 {
 }
 
 p {
+    padding: 20px;
     line-height: 1.6;
     margin-bottom: 15px;
 }
+
 
 .about-us {
     background-color: #f8efef; 
     padding: 50px;
     margin: 20px auto;
-    max-width: 800px;
+    max-width: max-content;
     border-radius: 15px;
     box-shadow: 
         0 4px 8px rgba(0, 0, 0, 0.5), 
@@ -36,7 +38,7 @@ p {
 
 .about-us ul {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
 }
 
 .about-us ul li { 
@@ -45,6 +47,7 @@ p {
 }
 
 .team {
+    max-width: 1500px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -52,8 +55,8 @@ p {
     background-color: #fcefef;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    
 }
 
 .team a {
@@ -67,7 +70,7 @@ p {
 }
 
 .team a:hover {
-    font-size: 20px; 
+    font-size: 25px; 
 }
 
 .team a:nth-child(1):hover {
