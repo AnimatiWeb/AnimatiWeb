@@ -1,65 +1,65 @@
 body {
-    background-color: #deeaf1;
-    background-size: cover;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #deeaf1;
+  background-size: cover;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
-    background-color: #8D46CF;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  background-color: #8D46CF;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .subtitulo-1{
-  text-shadow: 2px 2px 4px #333, -1px 1px 9px #333, 2px -3px 0 #333, -1px -1px 0 #333;
+  text-shadow: 2px 2px 4px #000000, -1px 1px 9px #000000, 2px -3px 0 #000000, -1px -1px 0 #e7dbdb;
 }
 
 .card {
-    border: none;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
 
 .card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .card-img-top {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    max-height: 300px;
-    object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  max-height: 300px;
+  object-fit: cover;
 }
 
 .card-body {
-    background-color: #E08090;
-    padding: 15px;
-    color: white;
+  background-color: #E08090;
+  padding: 15px;
+  color: white;
 }
 
 .btn-primary {
-    font-size: 20px;
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  font-size: 20px;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .btn-primary img {
-    width: 2rem;
+  width: 2rem;
 }
 
 .btn-modern {
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background-color: #7a1edc; /* Violeta */
+  background-color: #7a1edc; 
   color: white;
   text-decoration: none;
   border: none;
@@ -82,4 +82,69 @@ h1 {
 
 .btn-text {
   margin: 0;
+}
+
+/* Estilos responsivos */
+
+/* Pantalla pequeña (menos de 768px) */
+@media (max-width: 767px) {
+ .card {
+    max-width: 300px;
+    margin: 20px auto;
+  }
+ .card-img-top {
+    max-height: 200px;
+  }
+ .card-body {
+    padding: 10px;
+  }
+ .btn-primary {
+    font-size: 16px;
+    padding: 15px 30px;
+  }
+ .btn-modern {
+    padding: 8px 15px;
+  }
+}
+
+/* Pantalla mediana (entre 768px y 992px) */
+@media (min-width: 768px) and (max-width: 991px) {
+ .card {
+    max-width: 400px;
+    margin: 20px auto;
+  }
+ .card-img-top {
+    max-height: 250px;
+  }
+ .card-body {
+    padding: 15px;
+  }
+ .btn-primary {
+    font-size: 18px;
+    padding: 18px 35px;
+  }
+ .btn-modern {
+    padding: 10px 20px;
+  }
+}
+
+/* Pantalla grande (más de 992px) */
+@media (min-width: 992px) {
+ .card {
+    max-width: 500px;
+    margin: 20px auto;
+  }
+ .card-img-top {
+    max-height: 300px;
+  }
+ .card-body {
+    padding: 20px;
+  }
+ .btn-primary {
+    font-size: 20px;
+    padding: 20px 40px;
+  }
+ .btn-modern {
+    padding: 12px 25px;
+  }
 }
