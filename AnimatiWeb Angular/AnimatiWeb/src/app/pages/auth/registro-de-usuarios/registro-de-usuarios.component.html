@@ -8,7 +8,7 @@
     <div class="body">
       <h3>Registrarse</h3>
       <p>Complete el formulario con sus datos</p>
-      <form [formGroup]="form" method="post" action='./registration.py' (ngSubmit)="onEnviar($event)">
+      <form [formGroup]="form" method="post" (ngSubmit)="onEnviar($event)">
         <fieldset>
           <label for="Nombre_Usuario">Usuario:</label>
           <input id="Nombre_Usuario" name="Nombre_Usuario" formControlName="usuario" type="text" class="form-control">
