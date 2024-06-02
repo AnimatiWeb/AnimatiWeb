@@ -2,7 +2,9 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from .models import *
+
 # Register your models here.
+
 
 class CategoriaAdmin(admin.ModelAdmin):
     list_display =('Nombre_Categoria', 'Descripcion_Categoria')
@@ -23,7 +25,5 @@ class CustomUsuarioAdmin(UserAdmin):
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Producto, ProductoAdmin)
-admin.site.register(Cliente, ClienteAdmin)
-admin.site.register(Pedidos, PedidosAdmin)
-admin.site.register(Cliente, ClienteAdmin)     
+admin.site.register(Cliente, ClienteAdmin)   
 admin.site.register(CarritoCompras)

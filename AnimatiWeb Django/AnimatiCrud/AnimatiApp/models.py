@@ -1,6 +1,7 @@
 
 from django.db import models
 
+
 # Create your models here.
 
 from datetime import datetime
@@ -68,16 +69,12 @@ class Categoria(models.Model):
 
 
 class Producto(models.Model):
-    Id_Producto = models.AutoField(primary_key=True)
-    Nombre_Producto = models.CharField(max_length=70, blank=False)
-    Precio = models.DecimalField(blank=False, default=2000, decimal_places=2, max_digits=10)
-    Stock = models.IntegerField(blank=False, default=2000)
+
     Codigo_Producto = models.IntegerField(primary_key=True)
     Nombre_Producto = models.CharField(max_length=70, blank=False)
     Imagen = models.CharField(max_length=250)
     Precio = models.DecimalField(blank=False, default=2000, decimal_places=2, max_digits=10)
     Stock = models.PositiveIntegerField(blank=False, default=0)
-
     Id_Categoria = models.ForeignKey(Categoria, to_field='Id_Categoria', on_delete=models.CASCADE)
     class Meta:
         db_table = 'producto'
@@ -135,19 +132,3 @@ class Cliente(models.Model):
         return self.Nombre
     def __str__(self):
         return self.Nombre
-
-    
-class Pedidos (models.Model):
-    Nro_Pedido = models.IntegerField(primary_key=True)
-    Id_Producto = models.ForeignKey(Producto, to_field='Id_Producto', on_delete=models.CASCADE)
-    DNI = models.ForeignKey(Cliente, to_field='DNI', on_delete=models.CASCADE)    
-    Cantidad = models.IntegerField(blank=False)
-    class Meta:
-        db_table = 'pedido'
-        verbose_name = 'Pedido'
-        verbose_name_plural = 'Pedidos'
-
-    def __unicode__(self):
-        return self.Nro_Pedido
-    def __str__(self):
-        return self.Nro_Pedido

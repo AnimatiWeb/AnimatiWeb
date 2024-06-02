@@ -165,6 +165,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/imagenes')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
 AUTH_USER_MODEL = 'AnimatiApp.User'
 
 SIMPLE_JWT = {
