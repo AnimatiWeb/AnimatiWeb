@@ -8,22 +8,69 @@
     <div class="body">
       <h3>Registrarse</h3>
       <p>Complete el formulario con sus datos</p>
-      <form id="contact-form" method="post" action='./registration.py'>
+      <form [formGroup]="form" method="post" action='./registration.py' (ngSubmit)="onEnviar($event)">
         <fieldset>
           <label for="Nombre_Usuario">Usuario:</label>
-          <input id="Nombre_Usuario" name="Nombre_Usuario" type="text" required>
+          <input id="Nombre_Usuario" name="Nombre_Usuario" formControlName="usuario" type="text" class="form-control">
+          @if (usuario?.errors && usuario?.touched) {
+            @if (usuario?.hasError('required'))
+            {
+            <p class="text-danger">
+            El usuario es requerido.
+            </p>
+            }
+            }
         </fieldset>
         <fieldset>
           <label for="Numero_Telefono">Número de Teléfono:</label>
-          <input id="Numero_Telefono" name="Numero_Telefono" type="tel" pattern="[0-9]{10}" required>
+          <input id="Numero_Telefono" formControlName="telefono" name="Numero_Telefono" class="form-control" type="tel" >
+          @if (telefono?.errors && telefono?.touched) {
+            @if (telefono?.hasError('required'))
+            {
+            <p class="text-danger">
+            El telefono es requerido.
+            </p>
+            }
+            @else if (telefono?.hasError('pattern')){
+              <p class="text-danger">
+                Sólo se aceptan 10 números
+              </p>
+            }
+            }
         </fieldset>
         <fieldset>
           <label for="email">Correo electrónico:</label>
-          <input id="email" name="email" type="email" required>
+          <input id="email" name="email" class="form-control" formControlName="email" type="email">
+          @if (email?.errors && email?.touched) {
+            @if (email?.hasError('required'))
+            {
+            <p class="text-danger">
+            El email es requerido.
+            </p>
+            }
+            @else if (email?.hasError('email')) {
+              <p class="text-danger">
+                El formato es inválido
+              </p>
+            }
+            }
         </fieldset>
         <fieldset>
           <label for="password">Nueva contraseña:</label>
-          <input id="password" name="password" type="password" pattern="^(?=.*[A-Z])(?=.*\d).{8,}$" title="La contraseña debe contener al menos 8 caracteres con al menos una letra mayúscula y un número." required>
+          <input id="password" name="password" type="password" class="form-control" formControlName="password">
+          @if (password?.errors && password?.touched) {
+            @if (password?.hasError('required'))
+            {
+            <p class="text-danger">
+            La contraseña es requerida.
+            </p>
+            }
+            @else if (password?.hasError('minlength')) {
+              <p class="text-danger">
+                Debe tener 6 caracteres mínimo
+              </p>
+            }
+            }
         </fieldset>
         <fieldset>
           <label for="business-account">
@@ -31,7 +78,7 @@
             Deseo recibir correos electrónicos con novedades
           </label>
           <label for="terms-and-conditions">
-            <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" class="inline">
+            <input id="terms-and-conditions" type="checkbox" name="terms-and-conditions" formControlName="condiciones" class="inline">
             Acepto los <a href="./terms-y-co.html">términos y condiciones</a>
           </label>
           <input type="submit" name="submit" value="Registrarse">
