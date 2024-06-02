@@ -21,7 +21,7 @@ header {
 }
 
 .logo {
-  width: 100px; /* Reducimos el tamaño del logo para dispositivos móviles */
+  width: 100px; 
   height: 100px;
   border-radius: 50%;
   overflow: hidden;
@@ -41,7 +41,7 @@ header {
   transform: scale(1.1);
 }
 
-/* estilo de navegacion */
+
 .nav-menu {
   display: flex;
 }
@@ -93,18 +93,18 @@ header {
 @media (max-width: 768px) {
   .menu {
     flex-direction: column;
-    align-items: center; /* Centramos los elementos en dispositivos móviles */
+    align-items: center; 
   }
 
   .logo {
-    width: 80px; /* Reducimos aún más el tamaño del logo */
+    width: 80px; 
     height: 80px;
     margin-bottom: 10px;
   }
 
   .nav-list {
-    flex-direction: column; /* Cambiamos la dirección de la lista */
-    text-align: center; /* Centramos el texto */
+    flex-direction: column;
+    text-align: center; 
   }
 
   .nav-link {
