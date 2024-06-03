@@ -74,8 +74,8 @@ header {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
-  background-color: #fff;
+  height: 3.5px;
+  background-color: #3803f8;
   bottom: -2px;
   left: 50%;
   transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
