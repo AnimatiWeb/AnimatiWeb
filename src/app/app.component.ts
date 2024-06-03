@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { LLaverosComponent } from './LLaveros/llaveros.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
-})
+    selector: 'app-LLaveros',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    standalone: true,
+    imports: [CommonModule, RouterLink, RouterOutlet, LLaverosComponent]
+   })
 export class AppComponent {
-  title = 'AWAngulaLlaverosrJuanSs';
+  title = 'AnimatiWeb';
 }
+
+

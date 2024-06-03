@@ -1,0 +1,64 @@
+<button class="visually-hidden">Previa</button>
+<button class="visually-hidden">Siguiente</button>
+
+<h3 class="titulo-principal">Compras Realizadas</h3>
+<aside>
+    <main>
+        <h4 class="detalles-de-busqueda">Aquí podrá ver todas sus compras realizadas y elegir por categoría o fecha.</h4>
+        <h3>Filtrar por</h3>
+        <div class="row">
+            <select [(ngModel)]="opcionSeleccionada" (change)="filtrarProductos()" class="filter-container mt-3 mb-2 border">
+                <option *ngFor="let categoria of categoriesSet" [value]="categoria">{{ categoria }}</option>
+            </select>
+        </div>
+        <app-products id="products" [products]="productosFiltrados"></app-products>
+        <div class="container"></div>
+        <br><br>
+
+        <div class="cont-date-padre">
+            <div class="cont-date"><span>Desde</span><input type="date" [(ngModel)]="fromDate" (ngModelChange)="updateFilter()" [disabled]="!dataLoaded"></div>
+            <div class="cont-date"><span>Hasta</span><input type="date" [(ngModel)]="toDate" (ngModelChange)="updateFilter()" [disabled]="!dataLoaded">
+                <br><br>
+                <button class="carrito-acciones-comprar" (click)="resetFilter()">Buscar</button>
+                <button class="carrito-acciones-comprar" (click)="resetFilter()">Limpiar Búsqueda</button>
+            </div>
+        </div>
+
+        <div class="contenedor-carrito">
+            <div *ngIf="noResults" class="mensaje-no-resultados">
+                No se encontraron resultados.
+            </div>
+
+            <div id="carrito-productos" class="carrito-productos">
+                <div class="carrito-producto" *ngFor="let shopp of filteredShopping">
+                    <img class="carrito-producto-imagen" src="../../../assets/img/paper.png" alt="">
+                    <div class="carrito-producto-titulo">
+                        <small>#</small>
+                        <h3>{{shopp.id}}</h3>
+                    </div>
+                    <div class="carrito-producto-cantidad">
+                        <small>Fecha</small>
+                        <p>{{getFecha(shopp.created_at)}}</p>
+                    </div>
+                    <div class="carrito-producto-precio">
+                        <small>Total</small>
+                        <p>{{shopp.amount}}$</p>
+                    </div>
+                    <div class="carrito-producto-subtotal">
+                        <a routerLink="/shopping-details/{{shopp.id}}">Detalle</a>
+                    </div>
+
+                    <div *ngIf="!shopp || shopp.length === 0">
+                        <p>No ha realizado compras aún. Cuando realices una compra, se visualizará aquí.</p>
+                    </div>
+                </div>
+            </div>
+            <p id="carrito-comprado" class="carrito-comprado disabled">¡Muchas gracias por adquirir tus productos en AnimatiWeb! <i class="bi bi-emoji-laughing"></i></p>
+        </div>
+    </main>
+</aside>
+<app-footer></app-footer>
+<footer>
+    <p class="texto-footer">© 2024 animatiweb</p>
+</footer>
+
