@@ -19,10 +19,11 @@ from .serializers import *
 class CreateUserAPI(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = CrearUsuarioSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = (AllowAny)
 
 
 class ActualizarUsuarioSerializerAPI(UpdateAPIView):
+    permission_classes = [permissions.AllowAny]
     queryset = User.objects.all()
     serializer_class = ActualizarUsuarioSerializer
 
@@ -56,7 +57,7 @@ class LoginAPIView(TokenObtainPairView):
     
 
 class LogoutView(GenericAPIView):
-    permission_classes = [AllowAny] 
+    permission_classes = [permissions.AllowAny] 
     def post(self, request):
         user = User.objects.filter(id=request.data.get('user',''))
         if user.exists():
@@ -71,7 +72,7 @@ class ListaDeUsuarios(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UsuarioSerializer
     http_method_names = ['get']
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAdminUser, permissions.AllowAny]
     def list(self, request):
         queryset = self.get_queryset()
         serializer = UsuarioSerializer(queryset, many=True)
@@ -79,7 +80,7 @@ class ListaDeUsuarios(generics.ListCreateAPIView):
             return Response(serializer.data)
 
 class PerfilView(generics.RetrieveUpdateAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, permissions.AllowAny]
     serializer_class = UsuarioSerializer
     http_method_names = ['get', 'patch']
     def get_object(self):
@@ -94,16 +95,22 @@ class PerfilView(generics.RetrieveUpdateAPIView):
 
 
 class CategoriaViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.AllowAny]
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
 
 class verCategorias(viewsets.ReadOnlyModelViewSet):
-    permission_classes = [AllowAny]
+    permission_classes = [permissions.AllowAny]
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
 
+class ProductosViewAet(viewsets.ModelViewSet):
+    permission_classes = [permissions.AllowAny]
+    queryset = Producto.objects.all()
+    serializer_class = ProductosSerializer
+    
 class añadirProducto(APIView):
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAdminUser, permissions.AllowAny]
     def post(self, request, format=None):
         serializer = ProductosSerializer(data=request.data)
         if serializer.is_valid():
@@ -113,7 +120,7 @@ class añadirProducto(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class CarritoComprasVista(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, permissions.AllowAny]
     def post(self, request):
         serializer = CarroDeCompraSerializer(data=request.data)
         if serializer.is_valid():
@@ -124,41 +131,52 @@ class CarritoComprasVista(APIView):
 
 
 class DetalleCarrito(DetailView):
+    permission_classes = [permissions.AllowAny]
     model = Carrito
 
 
+
 class ListaCarritos(ListView):
+    permission_classes = [permissions.AllowAny]
     model = Carrito
     context_object_name = 'carritos'
 
 
 class CrearCarrito(CreateView):
+    permission_classes = [permissions.AllowAny]
     model = Carrito
 
 
 class ActualizarCarrito(UpdateView):
+    permission_classes = [permissions.AllowAny]
     model = Carrito
 
 
 class EliminarCarrito(DeleteView):
+    permission_classes = [permissions.AllowAny]
     model = Carrito
 
 class DetalleProductosCarrito(DetailView):
+    permission_classes = [permissions.AllowAny]
     model = ProductoCarrito
 
 
 class ListarProductosEnCarrito(ListView):
+    permission_classes = [permissions.AllowAny]
     model = ProductoCarrito
     context_object_name = 'Productos en Carrito'
 
 
 class CrearProductosCarrito(CreateView):
+    permission_classes = [permissions.AllowAny]
     model = ProductoCarrito
 
 
 class ActualizarProductoenCarrito(UpdateView):
+    permission_classes = [permissions.AllowAny]
     model = ProductoCarrito
 
 
 class EliminarItemEnCarrito(DeleteView):
+    permission_classes = [permissions.AllowAny]
     model = ProductoCarrito

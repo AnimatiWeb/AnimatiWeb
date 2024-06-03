@@ -8,6 +8,7 @@ from .views import *
 
 router=routers.DefaultRouter()
 router.register(r'Categoria', views.CategoriaViewSet)
+router.register(r'Productos', views.ProductosViewAet)
 
 
 
@@ -32,6 +33,6 @@ urlpatterns =[
     path('carritoProductos/crear', CrearProductosCarrito.as_view(), name='crearproductoencarrito'),
     path('carritoProductos/<int:pk>/actualizar', ActualizarProductoenCarrito.as_view(), name='actualizarproductoencarrito'),
     path('carritoProductos/<int:pk>/eliminar', EliminarItemEnCarrito.as_view(), name='eliminarproductodelcarrito'),
-     
+    
     path('', include(router.urls)),
 ]

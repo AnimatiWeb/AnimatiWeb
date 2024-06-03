@@ -1,0 +1,4 @@
+  
+
+GET http://127.0.0.1:8000/api/usuarios
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3NDgxNzQwLCJpYXQiOjE3MTczOTUzNDAsImp0aSI6IjQxZmNhOGE5ZmQ5ZjQ5ZTVhNDk3ZTJmN2FhM2JhYjZlIiwidXNlcl9pZCI6MX0.55Lga3EZS440Co8exucV7s-XBRmFXvWeS4ZoaoIIeQI

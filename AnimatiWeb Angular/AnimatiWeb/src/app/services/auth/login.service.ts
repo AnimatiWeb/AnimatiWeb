@@ -30,10 +30,7 @@ export class LoginService {
     );
   }
 
-  logout():void{
-    sessionStorage.removeItem("token");
-    this.currentUserLoginOn.next(false);
-  }
+  
 
   private handleError(error:HttpErrorResponse){
     if(error.status===0){

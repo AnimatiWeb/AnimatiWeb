@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',  
     'rest_framework_simplejwt.token_blacklist',
     "corsheaders",
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -171,7 +172,7 @@ AUTH_USER_MODEL = 'AnimatiApp.User'
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'AUTH_HEADER_TYPES': ('JWT',),
+    'AUTH_HEADER_TYPES': ('Bearer',),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken", ),
