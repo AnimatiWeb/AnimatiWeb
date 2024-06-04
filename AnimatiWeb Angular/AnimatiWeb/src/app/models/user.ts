@@ -1,10 +1,9 @@
 export class User{
-    nombre:string="";
-    apellido:string="";
-    dni:string="";
-    fechaNacimiento:string="";
+    username:string="";
+    first_name:string="";
+    last_name:string="";
     password:string="";
     email:string="";
-    id:number=0;
+
     
 }

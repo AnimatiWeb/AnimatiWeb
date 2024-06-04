@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
-import { Route } from '@angular/router';
+import { Router } from '@angular/router';
 import { User } from '../../../models/user';
 
 @Component({
@@ -16,20 +16,22 @@ export class RegistroDeUsuariosComponent {
   form:FormGroup;
   usuarios: User = new User();
 
-  constructor(private formBuilder: FormBuilder, private authService:AuthService, private router:Route){
+  constructor(private formBuilder: FormBuilder, private authService:AuthService, private router:Router){
     this.form = this.formBuilder.group(
       {
-        usuario:['',[Validators.required],[]],
-        telefono:['',[Validators.required,Validators.pattern('[0-9]{10}')],[]],
+        username:['',[Validators.required],[]],
+        first_name:['',[Validators.required,]],
+        last_name:['',[Validators.required,]],
         email:['',[Validators.required, Validators.email],[]],
-        password:['',[Validators.required,Validators.minLength(6)],[]],
+        password:['',[Validators.required,Validators.minLength(4)],[]],
+        password2:['',[Validators.required,Validators.minLength(4)],[]],
         condiciones:[false,[Validators.requiredTrue],[]]
       }
     )
   }
   
-  onEnviar(event:Event){
-    event.preventDefault;
+  onEnviar(){
+    
     if (this.form.valid)
     {
       console.log("Enviando al servidor.")
@@ -39,7 +41,7 @@ export class RegistroDeUsuariosComponent {
           console.log(this.form.value as User)
             if (data.id>0){
               alert('Se ha Registrado Correctamente. Ahora Puede Inciciar Sesion.')
-              this.router.navigate(['/login'])
+              this.router.navigate(['/'])
             }
         }
       )
@@ -50,21 +52,6 @@ export class RegistroDeUsuariosComponent {
     }
   }
 
-  get usuario(){
-    return this.form.get("usuario");
-  }
-  get telefono(){
-    return this.form.get("telefono");
-  }
-  get email(){
-    return this.form.get("email");
-  }
-  get password(){
-    return this.form.get("password");
-  }
-  get condiciones(){
-    return this.form.get("condiciones")
-  }
-
+  
 }
 
