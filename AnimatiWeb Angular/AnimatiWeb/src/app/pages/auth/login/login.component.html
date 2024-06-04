@@ -7,21 +7,22 @@
 </div>     
 <div class=" conteiner-fluid p-3 mt-5 mb-5 w-50 mx-auto from-reponsive">
     <main class="form-signin">
-        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <form [formGroup]="loginform" (ngSubmit)="login()">
+          <p class="text-danger">{{loginError}}</p>
             <div class="input-group mt-3">
                 <div class="input-group-text bg-secondary">
                   <img src="../../assets/img/username-icon.svg" alt="icono-usuario" class="usu-icon">
                 </div>
-                <input class="form-control" type="email" placeholder="email" formControlName="email">
-                @if(Email?.errors && Email?.touched){
-                    @if(Email?.hasError('required')){
+                <input class="form-control" type="username" placeholder="username" formControlName="username">
+                @if(username?.errors && username?.touched){
+                    @if(username?.hasError('required')){
                         <p class="text-danger">
-                            El Email es requerido.
+                            El Nombre de Usuario es requerido.
                         </p>
                     }
-                    @else if (Email?.hasError('email')) {
+                    @else if (username?.hasError('username')) {
                         <p class="text-danger">
-                            El formato del Email debe ser valido.
+                            Debe ingresar el Nombre de Usuario
                         </p>
                     }
                 }
@@ -30,7 +31,7 @@
                 <div class="input-group-text bg-secondary">
                  <img src="../../assets/img/password-icon.svg" alt="icono-usuario" class="usu-icon">
                 </div>
-                <input class="form-control bg-light" type="password" formControlName="password" placeholder="password" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*">
+                <input class="form-control bg-light" type="password" formControlName="password" placeholder="password" >
                 @if(password?.errors && password?.touched){
                     @if(password?.hasError('required')){
                         <p class="text-danger">
@@ -39,7 +40,7 @@
                     }
                     @else if (password?.hasError('minlength')) {
                         <p class="text-danger">
-                            El Password requiere como minimo 8 caracteres.
+                            El Password requiere como minimo 4 caracteres.
                         </p>
                     }
                 }
@@ -62,13 +63,13 @@
               <span class="bg-white px-3">¿No tienes Cuenta?</span>
              </div>
            </div>
-           <a routerLink="" class="text-decoration-none">
+           <a routerLink="/registroUsuarios" class="text-decoration-none">
             <div class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm">
               <img src="../../assets/img/person-icon.svg" alt="google-icon" class="bi bi-person-fill-add">
               <div class="fw-semibold text-secondary">Registrarme</div>
             </div>
           </a>
-          <a routerLink="" class="text-decoration-none">
+          <a routerLink="/" class="text-decoration-none">
             <div class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm">
               <img src="../../assets/img/main-icon.svg" alt="main-icono" class="bi bi-house">
               <div class="fw-semibold text-secondary"> Ir al sitio sin Iniciar Sesión</div>

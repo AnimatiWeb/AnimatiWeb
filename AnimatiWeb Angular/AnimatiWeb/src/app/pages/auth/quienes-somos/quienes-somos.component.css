@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.about-us {
+    background-color: #ffe6f0; 
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-us:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.about-us h1 {
+    text-align: center;
+    color: #d63384; 
+}
+
+.about-us h2 {
+    color: #d63384; 
+    margin-top: 20px;
+}
+
+.about-us p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-us ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about-us ul li {
+   
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.about-us strong {
+    color: #d63384; 
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.team a {
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: color 0.3s, box-shadow 0.3s, font-size 0.3s; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    color: #333;
+    font-weight: bold;
+}
+
+.team a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, #fff, transparent);
+    animation: saberAnimation 1s linear infinite;
+    opacity: 0; 
+}
+
+.team a:hover::before {
+    opacity: 1; 
+}
+
+.team a:hover {
+    font-size: 20px; 
+}
+
+@keyframes saberAnimation {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.team a:nth-child(1):hover {
+    color: #ff5733; 
+}
+
+.team a:nth-child(2):hover {
+    color: #ffbd33; 
+}
+
+.team a:nth-child(3):hover {
+    color: #33ff6b; 
+}
+
+.team a:nth-child(4):hover {
+    color: #f70418; 
+}
+
+.team a:nth-child(5):hover {
+    color: #caa5e7; 
+}
+
+.team a:nth-child(6):hover {
+    color: #ff3395; 
+}
+
+.team a:nth-child(7):hover {
+    color: #33ffc3; 
+}
+
+.team a:nth-child(8):hover {
+    color:  #A333FF; 
+}
+
+
+.team a:nth-child(1)::before {
+    background: linear-gradient(to right, transparent, #63f36b, transparent);
+}
+
+.team a:nth-child(2)::before {
+    background: linear-gradient(to right, transparent, #7fdde4, transparent); 
+}
+
+.team a:nth-child(3)::before {
+    background: linear-gradient(to right, transparent, #3dbcdb, transparent); 
+}
+
+.team a:nth-child(4)::before {
+    background: linear-gradient(to right, transparent, #f3ea72, transparent); 
+}
+
+.team a:nth-child(5)::before {
+    background: linear-gradient(to right, transparent, #f5ad72, transparent); 
+}
+
+.team a:nth-child(6)::before {
+    background: linear-gradient(to right, transparent, #3f787a, transparent); 
+}
+
+.team a:nth-child(7)::before {
+    background: linear-gradient(to right, transparent, #aa7df3, transparent); 
+}
+
+.team a:nth-child(8)::before {
+    background: linear-gradient(to right, transparent, #2417e0, transparent); 
+}
