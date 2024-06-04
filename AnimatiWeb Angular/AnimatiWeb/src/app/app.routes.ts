@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegistroDeUsuariosComponent } from './registro-de-usuarios/registro-de-usuarios.component';
 import { SetStickersComponent } from './set-stickers/set-stickers.component';
 import { SeparadoresComponent } from './separadores/separadores.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {path:"gallery", component:GalleryComponent},
@@ -13,7 +14,7 @@ export const routes: Routes = [
     {path:"cubecraft", component:CubecraftCityComponent},
     {path:"registroUsuarios", component:RegistroDeUsuariosComponent},
     {path:'login', component:LoginComponent},
-    {path:'separadores', component:SeparadoresComponent},
+    {path:'separadores', component:SeparadoresComponent, canActivate: [authGuard]},
     {path:'set-stickers', component:SetStickersComponent},
     
     {path:"", redirectTo:"/home", pathMatch:"full"}
