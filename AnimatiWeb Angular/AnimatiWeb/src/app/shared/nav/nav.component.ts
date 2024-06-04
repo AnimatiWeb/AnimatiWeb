@@ -33,6 +33,7 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   logout():void{
+    
     sessionStorage.removeItem("token");
     this.currentUserLoginOn.next(false);
     this.btnSecion = false;

@@ -30,8 +30,8 @@ export class RegistroDeUsuariosComponent {
     )
   }
   
-  onEnviar(){
-    
+  onEnviar(event:Event): void{
+    event.preventDefault;
     if (this.form.valid)
     {
       console.log("Enviando al servidor.")
