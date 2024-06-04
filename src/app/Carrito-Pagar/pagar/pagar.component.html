@@ -1,0 +1,63 @@
+
+<button class="visually-hidden">Previa</button>
+<button class="visually-hidden">Siguiente</button>
+
+<aside> 
+    <div class="compra" id="pagar"> 
+        <p><b> Elige Tu Medio De Pago </b></p> 
+
+               <p><a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Transferencias Bancarias</a> </p>
+      <div class="collapse" id="collapseExample" >
+        <div class="card card-body">
+      </div>
+      </div>
+
+      <p> <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="ctr">
+        Billeteras Virtuales (Mercado Pago y otras) </a> </p>
+  <div class="collapse" id="collapseExample" >
+      <div class="card card-body">
+
+        <p> <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="ctr">
+            Deposito en Efectivo por medios digitales (Cobro express y otros) </a> </p>
+      <div class="collapse" id="collapseExample" >
+          <div class="card card-body">
+        
+        <p> <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="ctr">
+            Tarjeta de Debito (Go Cuotas)</a> </p>
+      <div class="collapse" id="collapseExample" >
+          <div class="card card-body">
+
+            <p> <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="ctr">
+                Tarjeta De Credito</a> </p>
+          <div class="collapse" id="collapseExample" >
+              <div class="card card-body">
+
+              <p>Ingresa aquí los datos de tu tarjeta</p> 
+                 <input type="int" name="cardnumber" id="cardnumber" placeholder="XXXX XXXX XXXX XXXX" size="20" maxlength="20" />
+                  <p>CVV</p> <input type="int" name="cvv" id="cvv" placeholder="xxx" size="1" maxlength="3" />
+                  <br><br><p>Usted Pagará Con:</p> 
+                   <hr width=44%   size=3 color="#888888">
+          </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+            <button onclick="mensaje3()" class="btn btn-dark" type="button">Pagar</button>
+            </div>
+    </div>
+
+<p>Cupón De Descuento</p>
+<p>Ingresar Abajo</p>
+<input type="text" name="codigo" id="codigodesc" placeholder="Ingrese el código de cupon" size="19" maxlength="22" />
+<br><br>
+<p>Subtotal</p>
+<input type="text" name="subtotal" id="subt" placeholder="Subtotal a pagar" size="19" maxlength="22" />
+<p>Total A Pagar:</p>
+
+<hr width=55% size=3 color="#666666">
+<br><br>
+
+<button class="btn btn-success"> Ver Mi Carrito </button>
+            
+    <button  class="btn btn-dark" type="button" >Vaciar carrito</button>
+
+    </div>
