@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../../../models/user';
+import { Usuario } from '../../../interface/usuario';
+
+
 
 @Component({
   selector: 'app-registro-de-usuarios',
@@ -13,45 +16,46 @@ import { User } from '../../../models/user';
 })
 
 export class RegistroDeUsuariosComponent {
-  form:FormGroup;
-  usuarios: User = new User();
+  private accesoService = inject(AuthService);
+  private router = inject(Router);
+  public formBuild = inject(FormBuilder);
 
-  constructor(private formBuilder: FormBuilder, private authService:AuthService, private router:Router){
-    this.form = this.formBuilder.group(
-      {
-        username:['',[Validators.required],[]],
-        first_name:['',[Validators.required,]],
-        last_name:['',[Validators.required,]],
-        email:['',[Validators.required, Validators.email],[]],
-        password:['',[Validators.required,Validators.minLength(4)],[]],
-        password2:['',[Validators.required,Validators.minLength(4)],[]],
-        condiciones:[false,[Validators.requiredTrue],[]]
-      }
-    )
-  }
-  
-  onEnviar(event:Event): void{
-    event.preventDefault;
-    if (this.form.valid)
-    {
-      console.log("Enviando al servidor.")
-      this.authService.createUser(this.form.value as User).subscribe(
-        data => {
-          console.log(data.id);
-          console.log(this.form.value as User)
-            if (data.id>0){
-              alert('Se ha Registrado Correctamente. Ahora Puede Inciciar Sesion.')
-              this.router.navigate(['/'])
-            }
+  public formRegistro: FormGroup = this.formBuild.group({
+    username: ['',Validators.required],
+    first_name: ['',Validators.required],
+    last_name: ['',Validators.required],
+    email: ['',Validators.required],
+    password: ['',Validators.required]
+  })
+
+  registrarse(){
+    if(this.formRegistro.invalid) return;
+
+    const objeto:Usuario = {
+      username: this.formRegistro.value.username,
+      first_name: this.formRegistro.value.first_name,
+      last_name: this.formRegistro.value.last_name,
+      email: this.formRegistro.value.email,
+      password: this.formRegistro.value.password
+    }
+
+    this.accesoService.registrarse(objeto).subscribe({
+      next: (data) =>{
+        if(data.isSuccess){
+          this.router.navigate([''])
+        }else{
+          alert("No se pudo registrar")
         }
-      )
-    }
-    else
-    {
-    this.form.markAllAsTouched();
-    }
+      }, error:(error) =>{
+          console.log(error.message);
+        }
+    })
+
   }
 
-  
+  volver(){
+      this.router.navigate([''])
+  }
+    
 }
 

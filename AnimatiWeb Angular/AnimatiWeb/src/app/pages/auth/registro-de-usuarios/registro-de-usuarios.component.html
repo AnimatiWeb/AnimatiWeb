@@ -8,7 +8,7 @@
     <div class="body">
       <h3>Registrarse</h3>
       <p>Complete el formulario con sus datos</p>
-      <form [formGroup]="form"  class="form" (submit)="onEnviar($event)">
+      <form [formGroup]="formRegistro"  class="form" >
         <div class="m-3">
           <label for="username" class="form-label" >Nombre de Usuario</label>
           <input type="text"  id="username"  class="form-control" formControlName="username"   >
@@ -35,11 +35,11 @@
             Deseo recibir correos electrónicos con novedades
           </label>
           <label for="terms-and-conditions">
-            <input id="terms-and-conditions" type="checkbox" name="terms-and-conditions" formControlName="condiciones" class="inline">
+            <input id="terms-and-conditions" type="checkbox" name="terms-and-conditions"  class="inline">
             Acepto los <a href="./terms-y-co.html">términos y condiciones</a>
           </label>
           <div class="m-3">
-            <button class="btn btn-primary mt-3" >Enviar</button>
+            <button class="btn btn-primary mt-3" (click)="registrarse()" >Enviar</button>
         </div>
         </fieldset> 
       </form>

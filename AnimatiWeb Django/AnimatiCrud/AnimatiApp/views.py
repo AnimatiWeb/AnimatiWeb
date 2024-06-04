@@ -19,7 +19,7 @@ from .serializers import *
 class CreateUserAPI(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = CrearUsuarioSerializer
-    permission_classes = (AllowAny)
+    permission_classes = [permissions.AllowAny]
 
 
 class ActualizarUsuarioSerializerAPI(UpdateAPIView):
