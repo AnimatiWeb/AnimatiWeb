@@ -12,10 +12,11 @@ import { SamplepageComponent } from './samplepage/samplepage.component';
 import { QuienesSomosComponent } from './pages/auth/quienes-somos/quienes-somos.component';
 import { ProductsComponent } from './pages/admin/productos/productos.component';
 import { CategoriasComponent } from './pages/admin/categorias/categorias.component';
+import { AuthGuard } from './auth.guard';
 
 
 export const routes: Routes = [
-    {path:"gallery", component:GalleryComponent},
+    {path:"gallery", component:GalleryComponent, canActivate: [AuthGuard]},
     {path:"contacto", component:ContactoComponentComponent},
     {path:"cubecraft", component:CubecraftCityComponent},
     {path:"registroUsuarios", component:RegistroDeUsuariosComponent},
