@@ -1,3 +1,10 @@
+# ANIMATIWEB
+
+## Organizacion:
+
+https://github.com/AnimatiWeb
+
+
 ## **INTEGRANTES DE ANIMATIWEB**
 
 ### Luciana Ferace, feraceluciana@gmail.com, Looser3058.
@@ -9,6 +16,4 @@
 ### Gabriel De Nieto, gabrielnietodejesus@gmail.com, GabrielNDJ.
 ### Juan José Salinas, juansalinaa@gmail.com, JohnJoshepSalinas.
 
-## Organizacion:
 
-https://github.com/AnimatiWeb
