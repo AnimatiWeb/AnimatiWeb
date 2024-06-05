@@ -5,14 +5,13 @@ export const environment = {
   API_END_POINT: 'http://localhost:8000/api/',
 
   METHODS: {
-    GET_ALL_PRODUCT: 'Productos',
+    GET_ALL_PRODUCT: 'listaproductos',
     GET_PRODUCT_BY_ID: '',
-    GET_ALL_CATEGORY: 'Categoria',
-    GET_ALL_PRODUCT_BY_CATEGORY: 'GetAllProductsByCategoryId?id=',
+    GET_ALL_CATEGORY: 'vercategoria',
     CREATE_NEW_CATEGORY: 'CreateNewCategory',
     CREATE_PRODUCT: 'añadirproducto',
-    UPDATE_PRODUCT: '/Productos/{Codigo_Producto}',
-    DELETE_PRODUCT: '/Productos/{Codigo_Producto}',
+    UPDATE_PRODUCT: 'listaproductos',
+    DELETE_PRODUCT: 'listaproductos',
     ADD_TO_CART: 'ADDTOCART',
     GET_CART_BY_CUST: 'GetCartProductsByCustomerId?id=',
     REMOVE_CART: 'DeleteProductFromCartById?ID=',

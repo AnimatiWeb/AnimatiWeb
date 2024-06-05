@@ -17,7 +17,7 @@ export class CategoriasComponent implements OnInit {
   
   
   constructor(private productSrv: ProductService) {
-    this.productos$ = this.productSrv.getAllCategorias().pipe(
+    this.productos$ = this.productSrv.getAllCategoria().pipe(
       map((item:any) => {
         return item.data;
       })

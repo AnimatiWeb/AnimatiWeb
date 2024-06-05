@@ -41,11 +41,12 @@ export class RegistroDeUsuariosComponent {
 
     this.accesoService.registrarse(objeto).subscribe({
       next: (data) =>{
-        if(data.isSuccess){
-          this.router.navigate([''])
-        }else{
-          alert("No se pudo registrar")
-        }
+        
+        this.router.navigate(['/login'])
+          
+        
+        
+        
       }, error:(error) =>{
           console.log(error.message);
         }

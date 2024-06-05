@@ -55,7 +55,7 @@ export class LoginComponent {
         },
         complete: () =>{
           console.info('Login completo');
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/agregarproductos');
           this.loginform.reset();
         }
       })

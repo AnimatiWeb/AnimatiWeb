@@ -72,7 +72,7 @@ class ListaDeUsuarios(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UsuarioSerializer
     http_method_names = ['get']
-    permission_classes = [IsAdminUser, permissions.AllowAny]
+    permission_classes = [ permissions.AllowAny]
     def list(self, request):
         queryset = self.get_queryset()
         serializer = UsuarioSerializer(queryset, many=True)
@@ -80,7 +80,7 @@ class ListaDeUsuarios(generics.ListCreateAPIView):
             return Response(serializer.data)
 
 class PerfilView(generics.RetrieveUpdateAPIView):
-    permission_classes = [IsAuthenticated, permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
     serializer_class = UsuarioSerializer
     http_method_names = ['get', 'patch']
     def get_object(self):
@@ -110,7 +110,7 @@ class ProductosViewAet(viewsets.ModelViewSet):
     serializer_class = ProductosSerializer
     
 class añadirProducto(APIView):
-    permission_classes = [IsAdminUser, permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
     def post(self, request, format=None):
         serializer = ProductosSerializer(data=request.data)
         if serializer.is_valid():
@@ -120,7 +120,7 @@ class añadirProducto(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class CarritoComprasVista(APIView):
-    permission_classes = [IsAuthenticated, permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
     def post(self, request):
         serializer = CarroDeCompraSerializer(data=request.data)
         if serializer.is_valid():

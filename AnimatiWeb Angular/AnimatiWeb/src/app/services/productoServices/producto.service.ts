@@ -8,16 +8,20 @@ import { Observable, Subject, map, retry, take, takeLast } from 'rxjs';
 
 })
 export class ProductService {
+  getAllCategorias: any;
 
   constructor(private http: HttpClient) { }
 
-  getAllCategorias(){
-    return this.http.get(environment.API_END_POINT + environment.METHODS.GET_ALL_CATEGORY);
+  getAllCategoria():  Observable<any[]>{
+    return this.http.get<any[]>(environment.API_END_POINT + environment.METHODS.GET_ALL_CATEGORY);
+    
   }
 
   getAllProductos(){
     return this.http.get(environment.API_END_POINT + environment.METHODS.GET_ALL_PRODUCT);
+    
   }
+  
 
   gurdarProducto(obj: any){
     return this.http.post(environment.API_END_POINT + environment.METHODS.CREATE_PRODUCT, obj);

@@ -7,39 +7,42 @@
 
   <div class="container-fluid p-3 mt-5 mb-5 w-50 mx-auto form-responsive" style="max-width: 20rem; width: 50%;">
     <main class="form-signin">
-      <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+      <form [formGroup]="loginform" (ngSubmit)="login()">
+        <p class="text-danger">{{loginError}}</p>
         <div class="input-group mt-3">
           <div class="input-group-text bg-secondary">
             <img src="../../assets/img/username-icon.svg" alt="icono-usuario" class="usu-icon">
           </div>
-          <input class="form-control" type="email" placeholder="email" formControlName="email">
-          @if(Email?.errors && Email?.touched) {
-            @if(Email?.hasError('required')) {
+          <input class="form-control" type="username" placeholder="username" formControlName="username">
+          @if(username?.errors && username?.touched) {
+            @if(username?.hasError('required')) {
               <p class="text-danger">
-                El Email es requerido.
+                Debe ingresar el Nombre de Usuario
               </p>
             }
-            @else if (Email?.hasError('email')) {
+            @else if (username?.hasError('email')) {
               <p class="text-danger">
                 El formato del Email debe ser valido.
               </p>
             }
           }
         </div>
-        <div class="input-group mt-1">
+        <div class="input-group mt-3">
           <div class="input-group-text bg-secondary">
             <img src="../../assets/img/password-icon.svg" alt="icono-usuario" class="usu-icon">
           </div>
-          <input class="form-control bg-light" type="password" formControlName="password" placeholder="password">
+          <input class="form-control " type="password" formControlName="password" placeholder="password">
           @if(password?.errors && password?.touched) {
             @if(password?.hasError('required')) {
               <p class="text-danger">
+                
                 El Password es requerido.
               </p>
             }
             @else if (password?.hasError('minlength')) {
               <p class="text-danger">
-                El Password requiere como minimo 8 caracteres.
+                
+                El Password requiere como minimo 4 caracteres.
               </p>
             }
           }

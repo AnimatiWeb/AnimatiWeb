@@ -15,17 +15,10 @@ export class ProductsComponent implements OnInit {
   
   panelLateralVisible:boolean = false;
 
-  objetoProducto:any ={
-    "Codigo_Producto": 0,
-    "Id_Categoria": "",
-    "Nombre_Producto": "",
-    "Imagen": "",
-    "Precio": "",
-    "Stock": 0
-  };
+  objetoProducto:objetoProducto =new objetoProducto()
 
-  listaCategorias: any [] = [];
-  listaProductos: any [] = [];
+  listaCategorias: any[] = [];
+  listaProductos: any[] = [];
 
   constructor(private productoServicio:ProductService) {  }
 
@@ -35,10 +28,10 @@ export class ProductsComponent implements OnInit {
   }
 
   getAllCategorias(){
-    this.productoServicio.getAllCategorias().subscribe((res:any) => {
+    this.productoServicio.getAllCategoria().subscribe((res:any) => {
       this.listaCategorias = res.data;
 
-    })
+    });
   }
 
   getProductos(){
@@ -97,5 +90,25 @@ export class ProductsComponent implements OnInit {
   cerrarPanelNuevoProducto(){
     this.panelLateralVisible = false;
   }
+}
+export class objetoProducto {
+    Codigo_Producto: number;
+    Id_Categoria: number;
+    Nombre_Producto: string;
+    Imagen: string;
+    Precio: null;
+    Stock: number;
+      
+
   
+  constructor() {
+    this.Codigo_Producto = 0;
+    this.Nombre_Producto = '';
+    this.Imagen = '';
+    this.Precio = null;
+    this.Stock = 0;
+    this.Id_Categoria = 0;
+    
+  }
+
 }
