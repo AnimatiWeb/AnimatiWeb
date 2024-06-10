@@ -8,7 +8,6 @@ from .views import *
 
 router=routers.DefaultRouter()
 router.register(r'Categoria', views.CategoriaViewSet)
-router.register(r'Productos', views.ProductosViewAet)
 
 
 
@@ -21,9 +20,11 @@ urlpatterns =[
     path('registro', CreateUserAPI.as_view(), name='registro'),
     path('perfilusuario', PerfilView.as_view(), name='perfilusuario'),
     path('usuarios', ListaDeUsuarios.as_view(), name='listadeusuarios'),
-    path('vercategoria', verCategorias.as_view({'get': 'list'}), name='vercategoria'),
+    path('vercategoria', CategoriaViewSet.as_view({'get': 'list'}), name='vercategoria'),
+    path(r'delete/<Codigo_Producto>', ListaProductos.as_view(), name='eliminarproducto'),
+    path('update/<int:Codigo_Producto>', ActualizarProductoApiView.as_view(), name='actualizarrproducto'), 
     path('añadirproducto', añadirProducto.as_view(), name='añadirproducto'), 
-    path('listaproductos', ProductosViewAet.as_view({'get': 'list'}), name='listaproducto'),    
+    path('listaproductos', ListaProductos.as_view(), name='listaproducto'),    
     path('carrito', CarritoComprasVista.as_view(), name='carritodecompras'),
     path('listacarrito', ListaCarritos.as_view(), name='listacarrito'),
     path('carrito/<int:pk>', DetalleCarrito.as_view(), name='detallecarrito'),
@@ -35,6 +36,6 @@ urlpatterns =[
     path('carritoProductos/crear', CrearProductosCarrito.as_view(), name='crearproductoencarrito'),
     path('carritoProductos/<int:pk>/actualizar', ActualizarProductoenCarrito.as_view(), name='actualizarproductoencarrito'),
     path('carritoProductos/<int:pk>/eliminar', EliminarItemEnCarrito.as_view(), name='eliminarproductodelcarrito'),
-    
+        
     path('', include(router.urls)),
 ]

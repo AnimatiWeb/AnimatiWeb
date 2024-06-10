@@ -1,3 +1,6 @@
+import { objetoProducto } from "../pages/admin/productos/productos.component";
+
+let Codigo_Producto: any | objetoProducto["Codigo_Producto"]
 export const environment = {
   production: false,
   urlHost:'http://localhost:8000/',
@@ -5,13 +8,14 @@ export const environment = {
   API_END_POINT: 'http://localhost:8000/api/',
 
   METHODS: {
+    SLASH: '/',
     GET_ALL_PRODUCT: 'listaproductos',
-    GET_PRODUCT_BY_ID: '',
+    GET_PRODUCT_BY_ID: `Producto/${Codigo_Producto}`,
     GET_ALL_CATEGORY: 'vercategoria',
     CREATE_NEW_CATEGORY: 'CreateNewCategory',
     CREATE_PRODUCT: 'añadirproducto',
-    UPDATE_PRODUCT: 'listaproductos',
-    DELETE_PRODUCT: 'listaproductos',
+    UPDATE_PRODUCT: 'update/',
+    DELETE_PRODUCT: 'delete/',
     ADD_TO_CART: 'ADDTOCART',
     GET_CART_BY_CUST: 'GetCartProductsByCustomerId?id=',
     REMOVE_CART: 'DeleteProductFromCartById?ID=',

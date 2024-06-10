@@ -28,7 +28,8 @@ export const routes: Routes = [
     {path: 'dasboard', title: 'Dashboard Page', component: DashboardComponent},
     {path: 'samplepage', title: 'Sample Page', component: SamplepageComponent},
     {path: 'agregarproductos', component:ProductsComponent},
-    {path:'agregarcategoria', component:CategoriasComponent},
+    {path:'categoria', component:CategoriasComponent},
+    
     {path:"", redirectTo:"/", pathMatch:"full"}
 ];
 

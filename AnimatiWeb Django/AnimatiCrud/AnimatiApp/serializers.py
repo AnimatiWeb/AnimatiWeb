@@ -11,12 +11,14 @@ class CategoriaSerializer(serializers.ModelSerializer):
         model = Categoria
         fields = '__all__'
 
+        
+        
+
 class ProductosSerializer(serializers.ModelSerializer):
-    Id_Categoria = serializers.SlugRelatedField(
-        queryset = Categoria.objects.all(), slug_field="Nombre_Categoria")
     class Meta:
         model = Producto
-        fields = '__all__'       
+        fields = '__all__'   
+
 
 
 class CarroDeCompraSerializer(serializers.ModelSerializer):

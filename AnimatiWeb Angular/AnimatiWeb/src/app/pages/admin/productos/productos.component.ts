@@ -1,68 +1,85 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ProductService } from '../../../services/productoServices/producto.service';
+import { Categoria } from '../../../interface/categoria';
+import { Producto } from '../../../interface/prductolista';
+import { CategoriasComponent } from '../categorias/categorias.component';
+import { Observable } from 'rxjs';
+import { ErrorInterceptorService } from '../../../services/auth/error-interceptor.service';
+
+
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule,ReactiveFormsModule, FormsModule, RouterLink, AsyncPipe, CategoriasComponent],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
   
-  panelLateralVisible:boolean = false;
+  
 
+  panelVisible:boolean = false;
   objetoProducto:objetoProducto =new objetoProducto()
-
-  listaCategorias: any[] = [];
-  listaProductos: any[] = [];
-
-  constructor(private productoServicio:ProductService) {  }
-
+  listaCategorias!: Categoria[] 
+  listaProductos!: Producto[]
+  productoCodigo!: Producto["Codigo_Producto"] 
+  
+  constructor(private productoServicio:ProductService, errorInterceptor:ErrorInterceptorService) { }
+  
+  
+  ngOnDestroy(): void {
+    
+  }
   ngOnInit(): void {
-    this.getProductos();
     this.getAllCategorias();
+    this.getProductos()
   }
 
   getAllCategorias(){
-    this.productoServicio.getAllCategoria().subscribe((res:any) => {
-      this.listaCategorias = res.data;
+    this.productoServicio.getAllCategorias().subscribe(res => {
+      this.listaCategorias = res;
 
     });
   }
 
   getProductos(){
-    this.productoServicio.getAllProductos().subscribe((res:any) => {
-      this.listaProductos = res.data;
-
-    })
+    this.productoServicio.getProductos().subscribe(res => {
+      this.listaProductos = res;
+    });
   }
 
+  getProductosCodigo(){
+   
+  }
   enviarProducto(){
     this.productoServicio.gurdarProducto(this.objetoProducto).subscribe((res:any) =>{
-      debugger;
       if(res.result){
-        alert('producto creado')
+        alert(res.message)
         this.getProductos();
       }else{
-        alert(res.message)
+        alert(res.message);
+        
+        
       }
     })
   }
 
-  onEditarProducto(item: any){
+  onEditarProducto(item:any){
+    
     this.objetoProducto = item;
-    this.abrirPanelNuevoProducto();
-  }
+    this.panelVisible= true;
 
-  onEliminarProdicto(item: any){
+  }
+  
+  onEliminarProducto(item:any){
     const eliminar = confirm('¿Estas seguro de eliminar el producto?')
     if(eliminar){
       this.productoServicio.eliminarProducto(item.Codigo_Producto).subscribe((res:any) =>{
-        debugger;
+        
         if(res.result){
           alert('producto eliminado')
           this.getProductos();
@@ -74,38 +91,46 @@ export class ProductsComponent implements OnInit {
   }
 
   actualizarProducto(){
-    this.productoServicio.gurdarProducto(this.objetoProducto).subscribe((res:any) =>{
-      debugger;
-      if(res.result){
-        alert('producto actualizado')
+    this.productoServicio.actulizarProducto(this.objetoProducto).subscribe(data =>{
+      this.objetoProducto = data
+      console.log(this.objetoProducto)
+
+      if(data){
+        alert(data)
+
         this.getProductos();
       }else{
-        alert(res.message)
+        alert(data);
+        
+        
       }
     })
   }
+
+
   abrirPanelNuevoProducto(){
-    this.panelLateralVisible = true;
+    this.panelVisible=true;
   }
   cerrarPanelNuevoProducto(){
-    this.panelLateralVisible = false;
+    this.panelVisible=false;
   }
 }
-export class objetoProducto {
-    Codigo_Producto: number;
-    Id_Categoria: number;
-    Nombre_Producto: string;
-    Imagen: string;
-    Precio: null;
-    Stock: number;
-      
 
-  
+export class objetoProducto {
+  Codigo_Producto: number;
+  Id_Categoria: number;
+  Nombre_Producto: string;
+  Imagen: string;
+  Precio: number;
+  Stock: number;
+    
+
+
   constructor() {
     this.Codigo_Producto = 0;
     this.Nombre_Producto = '';
     this.Imagen = '';
-    this.Precio = null;
+    this.Precio = 0;
     this.Stock = 0;
     this.Id_Categoria = 0;
     
