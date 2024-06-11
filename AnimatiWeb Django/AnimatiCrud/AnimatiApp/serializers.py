@@ -22,13 +22,12 @@ class ProductosSerializer(serializers.ModelSerializer):
 
 
 class CarroDeCompraSerializer(serializers.ModelSerializer):
-    producto_nombre = serializers.CharField(max_length=200)
-    producto_precio = serializers.FloatField()
+    
     producto_cantidad = serializers.IntegerField(required=False, default=1)
 
     class Meta:
         model = CarritoCompras
-        fields = ('__all__')
+        fields = '__all__'
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     pass

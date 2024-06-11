@@ -12,6 +12,7 @@ router.register(r'Categoria', views.CategoriaViewSet)
 
 
 
+
 urlpatterns =[
     path('login', LoginAPIView.as_view(), name='login'),
     path('logout', LogoutView.as_view(), name = 'logout'),
@@ -31,7 +32,6 @@ urlpatterns =[
     path('carrito/crear', CrearCarrito.as_view(), name='crearcarrito'),
     path('carrito/<int:pk>/actualizar', ActualizarCarrito.as_view(), name='actualizarcarrito'),
     path('carrito/<int:pk>/eliminar', EliminarCarrito.as_view(), name='eliminarcarrito'),
-    path('carritoProducto', ListarProductosEnCarrito.as_view(), name='listarproductoencarrito'),
     path('carritoProductos/<int:pk>', DetalleProductosCarrito.as_view(), name='detalleproductoencarrito'),
     path('carritoProductos/crear', CrearProductosCarrito.as_view(), name='crearproductoencarrito'),
     path('carritoProductos/<int:pk>/actualizar', ActualizarProductoenCarrito.as_view(), name='actualizarproductoencarrito'),

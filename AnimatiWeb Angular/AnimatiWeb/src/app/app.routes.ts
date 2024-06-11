@@ -15,23 +15,25 @@ import { CategoriasComponent } from './pages/admin/categorias/categorias.compone
 
 import { LayoutComponent } from './admin/pages/layout/layout.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { isLoaddInGuard } from './guards/is-loadd-in.guard';
-import { isAdminGuard } from './guards/is-admin.guard';
+import { AccesoAdminComponent } from './pages/auth/acceso-admin/acceso-admin.component';
+
+
 
 
 export const routes: Routes = [
-    {path:"gallery", component:GalleryComponent, canActivate: [isLoaddInGuard]},
+    {path:"gallery", component:GalleryComponent},
     {path:"contacto", component:ContactoComponentComponent},
     {path:"cubecraft", component:CubecraftCityComponent},
     {path:"registroUsuarios", component:RegistroDeUsuariosComponent},
-    {path:'login', component:LoginComponent},  
+    {path:'login', component:LoginComponent},
+    {path:'accesoadmin', component:AccesoAdminComponent},  
     {path:'separadores', component:SeparadoresComponent},
     {path:'set-stickers', component:SetStickersComponent},
     {path:'', component:PaginaPrincipalComponent},
     {path:'Quien-somos', component:QuienesSomosComponent},
     {path: 'dashboard',  component: DashboardComponent},
     {path: 'samplepage', title: 'Sample Page', component: SamplepageComponent},
-    {path: 'agregarproductos', component:ProductsComponent, canActivate:[isAdminGuard] },
+    {path: 'agregarproductos', component:ProductsComponent},
     {path:'categoria', component:CategoriasComponent},
     
     {path:"", redirectTo:"/", pathMatch:"full"},

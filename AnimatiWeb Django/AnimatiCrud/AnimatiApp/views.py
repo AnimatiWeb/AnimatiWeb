@@ -231,15 +231,23 @@ class DetalleProductosCarrito(DetailView):
     model = ProductoCarrito
 
 
-class ListarProductosEnCarrito(ListView):
+class ListarProductosEnCarrito(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
-    model = ProductoCarrito
-    context_object_name = 'Productos en Carrito'
+    queryset = CarritoCompras.objects.all()
+    serializer_class = CarritoComprasVista
 
 
-class CrearProductosCarrito(CreateView):
+
+class CrearProductosCarrito(APIView):
     permission_classes = [permissions.AllowAny]
     model = ProductoCarrito
+    def post(self, request):
+        serializer = CarroDeCompraSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"estado": "correcto", "data": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"estado": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ActualizarProductoenCarrito(UpdateView):

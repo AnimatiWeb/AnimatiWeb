@@ -23,8 +23,8 @@ export class LoginComponent {
   { 
     this.loginform=this.formBuilder.group(
       {
-        username:['','AnimatiWeb',[Validators.required, Validators.minLength(4) ],[]],
-        password:['','1234',[Validators.required, Validators.minLength(4)],[]]
+        username:['',[Validators.required, Validators.minLength(4) ],[]],
+        password:['',[Validators.required, Validators.minLength(4)],[]]
       }
     )
   }

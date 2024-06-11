@@ -1,10 +1,16 @@
 import { inject } from '@angular/core';
-import { CanActivateFn } from '@angular/router';
-import { LoginService } from '../services/auth/login.service';
+import { CanActivateFn, Router } from '@angular/router';
 
 export const isLoaddInGuard: CanActivateFn = (route, state) => {
-
-  const loginService = inject(LoginService)
+  const router = inject(Router)
+  const localData= localStorage.getItem('is_staff')
   
-    return loginService.userLoginOn
+  if (!localData){
+    return false
+  }else{
+    
+    return true;
+    } 
+    
 };
+

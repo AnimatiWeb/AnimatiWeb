@@ -5,7 +5,6 @@ import  {  Observable, throwError, catchError, BehaviorSubject , tap, map} from 
 import { User } from './user';
 import { environment } from '../../environments/environment';
 
-const USER_LOCAL_STORAGE_KEY= 'userData'
 @Injectable({
   providedIn: 'root'
 })
@@ -13,8 +12,6 @@ export class LoginService {
 
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentUserData: BehaviorSubject<String> =new BehaviorSubject<String>("");
-  currentUserLoginOnId: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  currentUserDataId: BehaviorSubject<String> =new BehaviorSubject<String>("");
   
   constructor(private http: HttpClient) { 
     this.currentUserLoginOn=new BehaviorSubject<boolean>(sessionStorage.getItem("token")!=null);
@@ -23,7 +20,6 @@ export class LoginService {
 
   login(credentials:LoginRequest):Observable<any>{
     return this.http.post<any>(environment.urlApi+"login",credentials).pipe(
-      tap((userToken) => this.saveTokenToLocalStore(userToken)),
       tap( (userData) => {
         
         sessionStorage.setItem("token", userData.token);
@@ -35,9 +31,6 @@ export class LoginService {
     );
   }
   
-  private saveTokenToLocalStore(userToken: string): void {
-    localStorage.setItem(USER_LOCAL_STORAGE_KEY, userToken);
-  }
 
   logout():void{
     
