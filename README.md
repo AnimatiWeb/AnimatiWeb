@@ -14,7 +14,7 @@ Animati Papeleria es una tienda donde se hacen todo tipo de suplemntos de librer
 1. Clona el repositorio: 'https://github.com/AnimatiWeb/AnimatiWeb.git'
 2. Asegurate de tener Angular y Django instalados en tu equipo
 3. Inicia el servidor en Angular con el comando 'ng serve'
-4. disfruta navegando en la pagina.
+4. Disfruta navegando en la pagina.
 
 Si deseas puedes descargar la última version en el release. 
 
