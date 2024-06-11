@@ -1,3 +1,4 @@
+<app-layout></app-layout>
 <div class="row conteiner-fluid">
   <div [ngClass]="panelVisible ? 'col-8' : 'col-12'" >
     <div class="card">
@@ -18,10 +19,11 @@
               <img [src]="producto.Imagen" class="card-img-top" alt="">
               <div class="card-body">
                 <h5 class="card-title">{{producto.Nombre_Producto}}</h5>
-                <p class="card-text">{{producto.Id_Categoria}}</p>
+                <h6 class="card-title">Codigo: {{producto.Codigo_Producto}}</h6>
+                <p class="card-text"> Precio: ${{producto.Precio}}</p>
+                <p class="card-text">Stock: {{producto.Stock}}</p>
                 <a  class="btn btn-primary" (click)="onEditarProducto(producto)">Editar</a>
                 <a  class="btn btn-danger mx-2"(click)="onEliminarProducto(producto)" >Eliminar</a>
-                <a class="btn btn-successmx-2" routerLink="agregarcategoria">>Agregar Categoria</a>
               </div>
             </div>
           </div>       

@@ -21,5 +21,5 @@ export class AuthService {
 
   validarToken(token: string): Observable<ResponseAcceso> {
     return this.http.get<ResponseAcceso>(`${this.baseUrl}Acceso/ValidarToken?token=${token}`)
-}
+  }
 }

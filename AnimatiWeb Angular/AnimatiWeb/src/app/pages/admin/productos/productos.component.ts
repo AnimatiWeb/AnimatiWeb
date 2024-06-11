@@ -8,15 +8,16 @@ import { Producto } from '../../../interface/prductolista';
 import { CategoriasComponent } from '../categorias/categorias.component';
 import { Observable } from 'rxjs';
 import { ErrorInterceptorService } from '../../../services/auth/error-interceptor.service';
+import { LayoutComponent } from "../../../admin/pages/layout/layout.component";
 
 
 
 @Component({
-  selector: 'app-products',
-  standalone: true,
-  imports: [CommonModule,ReactiveFormsModule, FormsModule, RouterLink, AsyncPipe, CategoriasComponent],
-  templateUrl: './productos.component.html',
-  styleUrl: './productos.component.css'
+    selector: 'app-products',
+    standalone: true,
+    templateUrl: './productos.component.html',
+    styleUrl: './productos.component.css',
+    imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterLink, AsyncPipe, CategoriasComponent, LayoutComponent]
 })
 export class ProductsComponent implements OnInit, OnDestroy {
   

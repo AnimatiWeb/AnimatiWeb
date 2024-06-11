@@ -5,13 +5,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Categoria } from '../../../interface/categoria';
+import { LayoutComponent } from "../../../admin/pages/layout/layout.component";
 
 @Component({
-  selector: 'app-categories',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './categorias.component.html',
-  styleUrl: './categorias.component.css'
+    selector: 'app-categories',
+    standalone: true,
+    templateUrl: './categorias.component.html',
+    styleUrl: './categorias.component.css',
+    imports: [CommonModule, FormsModule, RouterLink, LayoutComponent]
 })
 export class CategoriasComponent  {
   Productos$:Observable<any> 

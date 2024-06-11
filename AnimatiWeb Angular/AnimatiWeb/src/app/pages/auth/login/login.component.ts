@@ -18,13 +18,13 @@ import { RouterLink } from '@angular/router';
 export class LoginComponent {
   loginError:string="";
   loginform!:FormGroup;
-
+  
   constructor(private formBuilder: FormBuilder, private router:Router, private loginService:LoginService)
   { 
     this.loginform=this.formBuilder.group(
       {
-        username:['',[Validators.required, Validators.minLength(4) ],[]],
-        password:['',[Validators.required, Validators.minLength(4)],[]]
+        username:['','AnimatiWeb',[Validators.required, Validators.minLength(4) ],[]],
+        password:['','1234',[Validators.required, Validators.minLength(4)],[]]
       }
     )
   }
@@ -55,7 +55,7 @@ export class LoginComponent {
         },
         complete: () =>{
           console.info('Login completo');
-          this.router.navigateByUrl('/agregarproductos');
+          this.router.navigateByUrl('/gallery');
           this.loginform.reset();
         }
       })

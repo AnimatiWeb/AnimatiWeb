@@ -73,12 +73,12 @@ class LogoutView(GenericAPIView):
 class ListaDeUsuarios(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UsuarioSerializer
-    http_method_names = ['get']
+    http_method_names = ['get', 'post']
     permission_classes = [ permissions.AllowAny]
     def list(self, request):
         queryset = self.get_queryset()
         serializer = UsuarioSerializer(queryset, many=True)
-        if self.request.user.is_authenticated:
+        if self.request.user:
             return Response(serializer.data)
 
 class PerfilView(generics.RetrieveUpdateAPIView):

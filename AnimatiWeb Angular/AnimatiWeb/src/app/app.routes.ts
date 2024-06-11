@@ -12,11 +12,15 @@ import { SamplepageComponent } from './samplepage/samplepage.component';
 import { QuienesSomosComponent } from './pages/auth/quienes-somos/quienes-somos.component';
 import { ProductsComponent } from './pages/admin/productos/productos.component';
 import { CategoriasComponent } from './pages/admin/categorias/categorias.component';
-import { AuthGuard } from './guards/auth.guard';
+
+import { LayoutComponent } from './admin/pages/layout/layout.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { isLoaddInGuard } from './guards/is-loadd-in.guard';
+import { isAdminGuard } from './guards/is-admin.guard';
 
 
 export const routes: Routes = [
-    {path:"gallery", component:GalleryComponent, canActivate: [AuthGuard]},
+    {path:"gallery", component:GalleryComponent, canActivate: [isLoaddInGuard]},
     {path:"contacto", component:ContactoComponentComponent},
     {path:"cubecraft", component:CubecraftCityComponent},
     {path:"registroUsuarios", component:RegistroDeUsuariosComponent},
@@ -25,11 +29,29 @@ export const routes: Routes = [
     {path:'set-stickers', component:SetStickersComponent},
     {path:'', component:PaginaPrincipalComponent},
     {path:'Quien-somos', component:QuienesSomosComponent},
-    {path: 'dasboard', title: 'Dashboard Page', component: DashboardComponent},
+    {path: 'dashboard',  component: DashboardComponent},
     {path: 'samplepage', title: 'Sample Page', component: SamplepageComponent},
-    {path: 'agregarproductos', component:ProductsComponent},
+    {path: 'agregarproductos', component:ProductsComponent, canActivate:[isAdminGuard] },
     {path:'categoria', component:CategoriasComponent},
     
-    {path:"", redirectTo:"/", pathMatch:"full"}
+    {path:"", redirectTo:"/", pathMatch:"full"},
+    {
+        path: '',
+        component: LayoutComponent,
+        canActivate: [],
+        children: [
+          {
+            path: 'agregarproducto',
+            component: ProductsComponent,
+            title: 'Products'
+          },
+          {
+            path: 'agregarcategoria',
+            component: CategoriasComponent,
+            title: 'Category'
+          }
+        ]
+      }
+    
 ];
 
