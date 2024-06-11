@@ -11,11 +11,13 @@ Animati Papeleria es una tienda donde se hacen todo tipo de suplemntos de librer
 - Diferentes páginas navegables, donde se pueden encontrar datos de contacto e información de la empresa.
 
 ## Instalación
-1. Clona el repositorio: `git clone https://github.com/Looser3058/Team_Rocket_2.0.git`
-2. Abre la carpeta "login.html" con tu navegador web predeterminado
-3. Para ingresar utiliza el usuario "usuario y la contraseña "Password123"
-4. Navega por las distintas paginas web :)
+1. Clona el repositorio: 'https://github.com/AnimatiWeb/AnimatiWeb.git'
+2. Asegurate de tener Angular y Django instalados en tu equipo
+3. Inicia el servidor en Angular con el comando 'ng serve'
+4. disfruta navegando en la pagina.
 
-##Derechos de autor
+Si deseas puedes descargar la última version en el release. 
+
+## Derechos de autor
 
 Todos los derechos de esta web estan reservados para el Grupo 12 de la Tecnicatura Superior en Desarrollo Web y Aplicaciones Digitales del Instituto Superioir Politecnico Córdoba.
